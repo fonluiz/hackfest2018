@@ -10,7 +10,24 @@ recupera_dados <- function(id_candidato) {
   json_file <- json
   json_data <- fromJSON(paste(readLines(json_file), collapse=""))
   
-  data_frame <- data.frame("ID" = json_data$id, "Nome_Urna" = json_data$nomeUrna, "Numero" = json_data$numero, "Nome_Completo" = json_data$nomeCompleto, "Genero" = json_data$descricaoSexo, "Data_Nascimento" = json_data$dataDeNascimento, "Titulo_Eleitor" = json_data$tituloEleitor, "CPF" =  json_data$cpf, "Estado_Civil" = json_data$descricaoEstadoCivil, "Cor_Raca" =  json_data$descricaoCorRaca, "Situacao" =  json_data$descricaoSituacao, "Nacionalidade" = json_data$nacionalidade, "Grau_Instrucao" = json_data$grauInstrucao, "Ocupacao" = json_data$ocupacao, "UF_Nascimento" = json_data$sgUfNascimento, "Nome_Municipio_Nascimento" = json_data$nomeMunicipioNascimento, "Local_Candidatura" = json_data$localCandidatura, "Ultima_Atualzacao" = json_data$dataUltimaAtualizacao, "Foto_Url" =  json_data$fotoUrl, "Flag_Concorrendo" = json_data$descricaoTotalizacao, "Coligacao" = json_data$composicaoColigacao,  "Total_Bens" = json_data$totalDeBens, "Partido" = json_data$partido$numero, "Sigla" = json_data$partido$sigla, "Nome_Partido" = json_data$partido$nome, "Email" = json_data$emails, "Situacao_Ficha_Limpa" = json_data$st_MOTIVO_FICHA_LIMPA, "Situacao_Abuso_Pode" = json_data$st_MOTIVO_ABUSO_PODER, "Flag_Divulga_Bens" = json_data$st_DIVULGA_BENS, "Flag_Reeleicao" = json_data$st_REELEICAO)
+  data_selected <- data.frame("ID" = json_data$id, "Nome_Urna" = json_data$nomeUrna, "Numero" = json_data$numero, 
+                              "Nome_Completo" = json_data$nomeCompleto, "Genero" = json_data$descricaoSexo, 
+                              "Data_Nascimento" = json_data$dataDeNascimento, "Titulo_Eleitor" = json_data$tituloEleitor, 
+                              "CPF" =  json_data$cpf, "Estado_Civil" = json_data$descricaoEstadoCivil, 
+                              "Cor_Raca" =  json_data$descricaoCorRaca, "Situacao" =  json_data$descricaoSituacao, 
+                              "Nacionalidade" = json_data$nacionalidade, "Grau_Instrucao" = json_data$grauInstrucao, 
+                              "Ocupacao" = json_data$ocupacao, "UF_Nascimento" = json_data$sgUfNascimento, 
+                              "Nome_Municipio_Nascimento" = json_data$nomeMunicipioNascimento, 
+                              "Local_Candidatura" = json_data$localCandidatura, "Ultima_Atualzacao" = json_data$dataUltimaAtualizacao, 
+                              "Foto_Url" =  json_data$fotoUrl, "Flag_Concorrendo" = json_data$descricaoTotalizacao, 
+                              "Coligacao" = json_data$composicaoColigacao,  "Total_Bens" = json_data$totalDeBens, 
+                              "Partido" = json_data$partido$numero, "Sigla" = json_data$partido$sigla, 
+                              "Nome_Partido" = json_data$partido$nome, "Email" = json_data$emails, 
+                              "Situacao_Ficha_Limpa" = json_data$st_MOTIVO_FICHA_LIMPA, "Situacao_Abuso_Pode" = json_data$st_MOTIVO_ABUSO_PODER, 
+                              "Flag_Divulga_Bens" = json_data$st_DIVULGA_BENS, "Flag_Reeleicao" = json_data$st_REELEICAO)
+  
+  data_frame <- data_selected %>% 
+    distinct(ID, .keep_all = TRUE)
   
   return(data_frame)
   
@@ -21,6 +38,7 @@ join_data <- function(list_id) {
   info_candidates <- recupera_dados(list_id[1])
   
   for (i in 2:length(list_id)) {
+    print(i)
     candidate <- recupera_dados(list_id[i])
     
     info_candidates <- info_candidates %>% 
