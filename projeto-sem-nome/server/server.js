@@ -1,34 +1,49 @@
 const express = require('express');
-
-const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
+const http = require('http');
 
 var corsOptions = {
   origin: 'http://example.com',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
 
-app.listen(3000, () => {
-  console.log('Server started!');
-});
-
+const app = express();
 
 app.use(bodyParser.json());
 app.use(cors(corsOptions))
 
-app.route('/api/get').get((req, res) => {
-  res.send(200, "get");
+// Rotas da API
+const api = require("./routes/api");
+
+// Parsers para dados POST
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Point static path to dist
+app.use(express.static(path.join(__dirname, "dist")));
+
+// Rotas da API
+app.use("/api", api);
+
+// Catch all other routes and return the index file
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist/index.html"));
 });
 
-app.route('/api/post').post((req, res) => {
-  res.send(201, req.body);
-});
+/**
+ * Recebe a porta do ambiente e usa no Express.
+ */
+const port = process.env.PORT || "3000";
+app.set("port", port);
 
-app.route('/api/put/:id').put((req, res) => {
-  res.send(200, req.body);
-});
+/**
+ * Servidor HTTP.
+ */
+const server = http.createServer(app);
 
-app.route('/api/delete/:id').delete((req, res) => {
-  res.sendStatus(204);
-});
+/**
+ * Servidor escutando na porta especificada.
+ */
+server.listen(port, () => console.log(`API running on localhost:${port}`));
