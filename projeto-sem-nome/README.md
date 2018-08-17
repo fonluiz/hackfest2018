@@ -1,27 +1,28 @@
-# Angular
+# Projeto sem Nome
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
 
-## Development server
+## Requisitos
+Instale o nodemon globalmente:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`npm install -g nodemon`
 
-## Code scaffolding
+Obs: Caso você tenha problemas com o Cors. Execute a instalação do mesmo manualmente: npm install cors
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Recomendações
+Depois de clonar o repositório, instale as dependências necessárias:
 
-## Build
+`npm install`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Executando
+Para executar o ambiente de desenvolvimento do cliente (Angular):
 
-## Running unit tests
+`ng serve`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Obs: A aplicação estará disponível em localhost:4200
 
-## Running end-to-end tests
+Para executar o ambiente de desenvolvimento do server (Express + nodejs):
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+`npm start`
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Obs: A api estará disponível em localhost:3000/api
