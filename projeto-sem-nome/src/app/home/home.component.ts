@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  filter: any;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  private changeFilter(filter) {
+    this.filter = filter
   }
 
 }

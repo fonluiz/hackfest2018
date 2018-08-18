@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, OnInit } from "@angular/core";
+=======
+import { Component, OnInit, Input } from '@angular/core';
+>>>>>>> master
 import { CandidatesService } from "../services/candidates.service";
 import { TitleCasePipe } from "../pipes/title-case";
 
@@ -8,6 +12,9 @@ import { TitleCasePipe } from "../pipes/title-case";
   styleUrls: ["./candidates-list.component.scss"]
 })
 export class CandidatesListComponent implements OnInit {
+
+  @Input() filter: any;
+
   candidates: any;
 
   titleCasePipe = new TitleCasePipe();
@@ -15,8 +22,11 @@ export class CandidatesListComponent implements OnInit {
   constructor(private candidatesService: CandidatesService) {}
 
   ngOnInit() {
-    this.candidatesService.getAllCandidates().subscribe(candidates => {
-      this.candidates = candidates;
-    });
+    this.candidatesService.getAllCandidates().subscribe(
+      candidates => {
+        this.candidates = candidates;
+      }
+    )
+
   }
 }

@@ -1,27 +1,53 @@
 <mat-vertical-stepper class="custom-bg">
   <mat-step label="Gênero" >
-  	<div align="end">
-  		<button mat-button matStepperNext>Próximo</button>
-  	</div>
+		<div class="container">
+
+			<div class="row">
+				<p>Qual você prefere?</p>
+			</div>
+
+			<div class="radio">
+				<label class="radio-inline">
+					<input type="radio" name="inlineRadioOptions" id="inlineRadio1" 
+					(click)="setGender('MASC.')"> HOMEM
+				</label> 
+			</div>
+
+			<div class="radio">
+				<label class="radio-inline">
+					<input type="radio" name="inlineRadioOptions" id="inlineRadio1"
+					(click)="setGender('FEM.')"> MULHER
+				</label> 
+			</div>
+			
+			<div class="radio">
+				<label class="radio-inline">
+					<input type="radio" name="inlineRadioOptions" id="inlineRadio1"
+					(click)="setGender(null)" value="option1"> INDIFERENTE
+				</label> 
+			</div>
+		</div>
+
   </mat-step>
 
   <mat-step label="Cor/raça">
-	<div align="end">
-		<button mat-button matStepperPrevious>Anterior</button>
-		<button mat-button matStepperNext>Próximo</button>    	
+
+	<div class="row">
+		<div class="btn-group" role="group" aria-label="Basic example">
+				<button type="button" class="btn btn-secondary" (click)="setGender('MASC.')">amarela</button>
+				<button type="button" class="btn btn-secondary" (click)="setGender('FEM.')">branca</button>
+				<button type="button" class="btn btn-secondary" (click)="setGender(null)">parda</button>
+				
+			</div>
 	</div>
+
   </mat-step>
 
   <mat-step label="Escolaridade">
-	<div align="end">
-		<button mat-button matStepperPrevious>Anterior</button>
-		<button mat-button matStepperNext>Próximo</button>    	
-	</div> 
+	
   </mat-step>
 
   <mat-step label="Carreira política">
-    <div align="end">
-		<button mat-button matStepperPrevious>Anterior</button>
-	</div>
+    
   </mat-step>
 </mat-vertical-stepper>
