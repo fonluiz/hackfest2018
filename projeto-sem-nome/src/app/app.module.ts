@@ -7,7 +7,6 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatIconModule} from '@angular/material/icon';
 
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FilterComponent } from './filter/filter.component';
@@ -15,6 +14,9 @@ import { CandidatesListComponent } from './candidates-list/candidates-list.compo
 import { CandidatesService } from './services/candidates.service'
 import { TitleCasePipe } from './pipes/title-case'
 import { FilterCandidatesPipe } from './pipes/filter-candidates'
+import { AppRoutingModule } from './app-routing.module';
+import { PerfilCandidatoComponent } from './perfil-candidato/perfil-candidato.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { FilterCandidatesPipe } from './pipes/filter-candidates'
     FilterComponent,
     CandidatesListComponent,
     TitleCasePipe,
-    FilterCandidatesPipe
+    FilterCandidatesPipe,
+    PerfilCandidatoComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,8 @@ import { FilterCandidatesPipe } from './pipes/filter-candidates'
     MatButtonModule, 
     MatCheckboxModule,
     MatStepperModule,
-    MatIconModule
+    MatIconModule,
+    AppRoutingModule
   ],
   exports: [
     TitleCasePipe,

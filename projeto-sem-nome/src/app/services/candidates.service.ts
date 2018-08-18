@@ -14,6 +14,6 @@ export class CandidatesService {
   ) { }
 
   getAllCandidates() {
-    return this.http.get(this.url + '/cadastrais');
+    return this.http.get(this.url + 'cadastrais');
   }
 }
