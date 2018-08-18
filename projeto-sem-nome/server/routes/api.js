@@ -36,25 +36,27 @@ router.get('/deputado/:id', (req, res) => {
   execSQLQuery(query, parameters, res);
 });
 
+// Retorna os patrimônios históricos de um deputado
+router.get('/patrimonio/:cpf', (req, res) => {
+  let parameters = [req.params.cpf];
+  const query = "SELECT * FROM bens_candidatos WHERE cpfCandidato = ?;";
+
+  execSQLQuery(query, parameters, res);
+});
+
 // Função Wrapper para executar consultas no banco, 
 function execSQLQuery(sqlQuery, parameters, res) {
-
     pool.getConnection(function (err, connection) {
-
         if(err){
             console.log(err)
         }
-  
       connection.query(sqlQuery, parameters, function (error, results, fields) {
-  
         if (error) {
           res.status(400).json(error);
         } else {
           res.status(200).json(results);
         }
-  
         connection.release();
-  
       });
     });
   
