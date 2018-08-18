@@ -7,18 +7,21 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CandidatesListComponent } from './candidates-list/candidates-list.component';
 import { CandidatesService } from './services/candidates.service'
+import { TitleCasePipe } from './pipes/title-case'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CandidatesListComponent
+    CandidatesListComponent,
+    TitleCasePipe
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule
   ],
+  exports: [TitleCasePipe],
   providers: [CandidatesService],
   bootstrap: [AppComponent]
 })
