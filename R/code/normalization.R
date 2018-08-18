@@ -85,6 +85,14 @@ dep_federal_alt <- dep_federal_alt %>%
   left_join(cod_partido) %>% 
   select(-c(Sigla, Nome_Partido))
 
+dep_federal_alt <- dep_federal_alt %>% 
+  rename("Situacao_Abuso_Poder" = Situacao_Abuso_Pode) %>%
+  mutate(Situacao_Ficha_Limpa = ifelse(Situacao_Ficha_Limpa, 1, 0)) %>% 
+  mutate(Situacao_Abuso_Poder = ifelse(Situacao_Abuso_Poder, 1, 0)) %>% 
+  mutate(Flag_Divulga_Bens = ifelse(Flag_Divulga_Bens, 1, 0)) %>% 
+  mutate(Flag_Reeleicao = ifelse(Flag_Reeleicao, 1, 0)) %>% 
+  mutate(Flag_Concorrendo = ifelse(Flag_Concorrendo, 1, 0))
+
 ## Escrevendo CSVs
 
 write.csv(cod_estado_civil, here("data/normalized/cod_estado_civil.csv"), row.names = FALSE)
