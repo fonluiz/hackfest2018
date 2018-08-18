@@ -23,7 +23,7 @@ recupera_dados <- function(id_candidato, estado) {
                               "Foto_Url" =  json_data$fotoUrl, "Flag_Concorrendo" = json_data$descricaoTotalizacao, 
                               "Coligacao" = json_data$composicaoColigacao,  "Total_Bens" = json_data$totalDeBens, 
                               "Partido" = json_data$partido$numero, "Sigla" = json_data$partido$sigla, 
-                              "Nome_Partido" = json_data$partido$nome, "Email" = json_data$emails, 
+                              "Nome_Partido" = json_data$partido$nome, "Email" = toString(json_data$emails), 
                               "Situacao_Ficha_Limpa" = json_data$st_MOTIVO_FICHA_LIMPA, "Situacao_Abuso_Pode" = json_data$st_MOTIVO_ABUSO_PODER, 
                               "Flag_Divulga_Bens" = json_data$st_DIVULGA_BENS, "Flag_Reeleicao" = json_data$st_REELEICAO)
   
@@ -38,7 +38,7 @@ recupera_dados <- function(id_candidato, estado) {
 join_data <- function(list_id, list_estado) {
   info_candidates <- recupera_dados(list_id[1], list_estado[1])
   
-  for (i in 950:length(list_id)) { ## 2:length
+  for (i in 2:length(list_id)) { ## 2:length
     print(i)
     candidate <- recupera_dados(list_id[i], list_estado[i])
     
