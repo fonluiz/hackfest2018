@@ -2,16 +2,16 @@ DROP DATABASE IF EXISTS hackfest_db;
 CREATE DATABASE hackfest_db;
 USE hackfest_db;
 
-DROP TABLE IF EXISTS cor_raca;
-CREATE TABLE cor_raca(
+DROP TABLE IF EXISTS cod_cor_raca;
+CREATE TABLE cod_cor_raca(
     cod_cor_raca INT(3),
     Cor_Raca VARCHAR(10),
 
     CONSTRAINT cor_raca_pk PRIMARY KEY(cod_cor_raca)
 );
 
-DROP TABLE IF EXISTS estado_civil;
-CREATE TABLE estado_civil(
+DROP TABLE IF EXISTS cod_estado_civil;
+CREATE TABLE cod_estado_civil(
     cod_estado_civil INT(3),
     Estado_Civil VARCHAR(13),
 
@@ -19,8 +19,8 @@ CREATE TABLE estado_civil(
 
 );
 
-DROP TABLE IF EXISTS grau_instrucao;
-CREATE TABLE grau_instrucao(
+DROP TABLE IF EXISTS cod_grau_instrucao;
+CREATE TABLE cod_grau_instrucao(
     cod_grau_instrucao INT(3),
     Grau_Instrucao VARCHAR(29),
 
@@ -28,8 +28,8 @@ CREATE TABLE grau_instrucao(
 
 );
 
-DROP TABLE IF EXISTS ocupacao;
-CREATE TABLE ocupacao(
+DROP TABLE IF EXISTS cod_ocupacao;
+CREATE TABLE cod_ocupacao(
     cod_ocupacao INT(3),
     Ocupacao VARCHAR(70),
 
@@ -37,8 +37,8 @@ CREATE TABLE ocupacao(
 
 );
 
-DROP TABLE IF EXISTS partidos;
-CREATE TABLE partidos(
+DROP TABLE IF EXISTS cod_partido;
+CREATE TABLE cod_partido(
     Partido INT(2),
     Sigla VARCHAR(20),
     Nome_Partido VARCHAR(50),
@@ -47,8 +47,8 @@ CREATE TABLE partidos(
 
 );
 
-DROP TABLE IF EXISTS situacao;
-CREATE TABLE situacao(
+DROP TABLE IF EXISTS cod_situacao;
+CREATE TABLE cod_situacao(
     cod_situacao INT(2),
     Situacao VARCHAR(21),
 
@@ -56,17 +56,18 @@ CREATE TABLE situacao(
 
 );
 
-DROP TABLE IF EXISTS situacao;
-CREATE TABLE situacao(
-    cod_situacao INT(2),
-    Situacao VARCHAR(21),
+DROP TABLE IF EXISTS cod_nacionalidade;
+CREATE TABLE cod_nacionalidade(
+    cod_nacionalidade INT(2),
+    Nacionalidade VARCHAR(50),
 
-    CONSTRAINT cor_raca_pk PRIMARY KEY(cod_cor_raca)
+    CONSTRAINT cod_nacionalidade_pk PRIMARY KEY(cod_nacionalidade)
 
 );
 
 DROP TABLE IF EXISTS dep_federal;
 CREATE TABLE dep_federal(
+
     ID VARCHAR(12),
     Nome_urna VARCHAR(50),
     Numero INT(4),
@@ -95,7 +96,16 @@ CREATE TABLE dep_federal(
     cod_nacionalidade INT(3),
     cod_grau_instrucao INT(3),
     cod_ocupacao INT(3),
+    cod_partido INT(3),
 
-    CONSTRAINT dep_federal_pk PRIMARY KEY(ID)
+    CONSTRAINT dep_federal_pk PRIMARY KEY(ID),
+
+    CONSTRAINT cod_estado_civil_fk FOREIGN KEY(cod_estado_civil) REFERENCES cod_estado_civil(cod_estado_civil),
+    CONSTRAINT cod_cor_raca_fk FOREIGN KEY(cod_cor_raca) REFERENCES cod_cor_raca(cod_cor_raca),
+    CONSTRAINT cod_situacao_fk FOREIGN KEY(cod_situacao) REFERENCES cod_situacao(cod_situacao),
+    CONSTRAINT cod_nacionalidade_fk FOREIGN KEY(cod_nacionalidade) REFERENCES cod_nacionalidade(cod_nacionalidade),
+    CONSTRAINT cod_grau_instrucao_fk FOREIGN KEY(cod_grau_instrucao) REFERENCES cod_grau_instrucao(cod_grau_instrucao),
+    CONSTRAINT cod_ocupacao_fk FOREIGN KEY(cod_ocupacao) REFERENCES cod_ocupacao(cod_ocupacao),
+    CONSTRAINT cod_partido_fk FOREIGN KEY(cod_partido) REFERENCES cod_partido(Partido)
 
 );
