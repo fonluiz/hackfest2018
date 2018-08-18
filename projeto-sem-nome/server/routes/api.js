@@ -9,14 +9,29 @@ router.get('/', (req, res) => {
     res.send('api works!');
 });
 
-router.get('/cadastrais', (req, res) => {    
-    let parameters = [req.query.genero, req.query.escolaridade, req.query.corRaca, req.query.novo, req.query.estado, req.query.cargo];    
-    filterService.criaConsulta(req);
-
-    const query = "SELECT * FROM dep_federal" 
-    parameters = "";
+// Retorna a lista com todos os candidatos a deputado da eleição de 2018
+router.get('/deputado', (req, res) => {
+    let parameters = [];
+    const query = "SELECT * FROM dep_federal;";
 
     execSQLQuery(query, parameters, res);
+});
+
+router.get('/cadastrais', (req, res) => {    
+    let parameters = [req.query.genero, req.query.escolaridade, req.query.corRaca, req.query.novo, req.query.estado, req.query.cargo];    
+    
+    let query = filterService.criaConsulta(parameters);
+    let validParameters = filterService.getParametrosValidos(parameters);    
+    
+    execSQLQuery(query, validParameters, res);
+});
+
+// Retorna a lista com todos os candidatos a deputado da eleição de 2018
+router.get('/deputado/:id', (req, res) => {
+  let parameters = [req.params.id];
+  const query = "SELECT * FROM dep_federal WHERE ID = ?;";
+
+  execSQLQuery(query, parameters, res);
 });
 
 // Função Wrapper para executar consultas no banco, 
