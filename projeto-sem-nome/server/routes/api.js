@@ -19,10 +19,12 @@ router.get('/deputado', (req, res) => {
 
 router.get('/cadastrais', (req, res) => {    
     let parameters = [req.query.genero, req.query.escolaridade, req.query.corRaca, req.query.novo, req.query.estado, req.query.cargo];    
+    let query;
+    let validParameters;
+
+    query = filterService.criaConsulta(parameters);
+    validParameters = filterService.getParametrosValidos(parameters);    
     
-    let query = filterService.criaConsulta(parameters);
-    let validParameters = filterService.getParametrosValidos(parameters);    
-        
     execSQLQuery(query, validParameters, res);
 });
 
