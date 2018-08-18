@@ -14,6 +14,7 @@ router.get('/deputado', (req, res) => {
     let parameters = [];
     const query = "SELECT * FROM dep_federal;";
 
+    execSQLQuery(query, parameters, res);
 });
 
 router.get('/cadastrais', (req, res) => {    
