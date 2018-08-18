@@ -4,15 +4,11 @@ const cors = require('cors');
 const path = require('path');
 const http = require('http');
 
-var corsOptions = {
-  origin: 'http://example.com',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
-}
-
 const app = express();
 
+app.use(cors());
+
 app.use(bodyParser.json());
-app.use(cors(corsOptions))
 
 // Rotas da API
 const api = require("./routes/api");

@@ -11,12 +11,17 @@ import {MatIconModule} from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FilterComponent } from './filter/filter.component';
+import { CandidatesListComponent } from './candidates-list/candidates-list.component';
+import { CandidatesService } from './services/candidates.service'
+import { TitleCasePipe } from './pipes/title-case'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FilterComponent
+    FilterComponent,
+    CandidatesListComponent,
+    TitleCasePipe
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,8 @@ import { FilterComponent } from './filter/filter.component';
     MatStepperModule,
     MatIconModule
   ],
-  providers: [],
+  exports: [TitleCasePipe],
+  providers: [CandidatesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="row">
+
+      <div class="card m-1" *ngFor="let candidate of candidates">
+          <img class="card-img-top" src="{{ candidate.Foto_Url }}" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-title">{{ this.titleCasePipe.transform(candidate.Nome_urna) }}</p>
+            <p class="card-text">{{ candidate.Nome_Partido}} - PB</p>
+          </div>
+          
+        </div>
+
+  </div>
+
+</div>

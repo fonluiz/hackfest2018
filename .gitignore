@@ -1,3 +1,6 @@
-R/*.Rhistory
+.Rhistory
+.RData
 R/.Rproj.user
 .Rproj.user
+
+.vscode
