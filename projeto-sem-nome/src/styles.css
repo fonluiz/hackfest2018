@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+
+html, body, container {
+    height: 100%;
+}
+
+body {
+    background: #DCEDC8;
+}
+
+
+/* cores:
+#AFB42B - verde escuro
+#F0F4C3 - verde claro
+#CDDC39 - verde limão
+#00BCD4 - azul
+*/
