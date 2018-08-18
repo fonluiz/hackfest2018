@@ -1,3 +1,16 @@
 <div class="container">
-  TEST
+
+  <div class="row">
+
+      <div class="card m-1" *ngFor="let candidate of candidates | filterCandidates : filter">
+          <img class="card-img-top" src="{{ candidate.Foto_Url }}" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-title">{{ this.titleCasePipe.transform(candidate.Nome_urna) }}</p>
+            <p class="card-text">{{ candidate.Sigla}} - PB</p>
+          </div>
+          
+        </div>
+
+  </div>
+
 </div>
