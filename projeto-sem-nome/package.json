@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "nodemon ./server/server.js",
+    "babel-node": "babel-node --presets=env",
+    "start": "nodemon --exec npm run babel-node -- ./server/server.js",    
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -38,6 +39,8 @@
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "codelyzer": "~4.2.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
