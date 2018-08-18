@@ -1,27 +1,33 @@
 <mat-vertical-stepper class="custom-bg">
   <mat-step label="Gênero" >
-  	<div align="end">
-  		<button mat-button matStepperNext>Próximo</button>
-  	</div>
+		<div class="container">
+
+			<div class="row">
+				<p>Qual você prefere?</p>
+			</div>
+
+			<div class="row">
+				<div class="btn-group" role="group" aria-label="Basic example">
+						<button type="button" class="btn btn-secondary" (click)="setGender('MASC.')">Homem</button>
+						<button type="button" class="btn btn-secondary" (click)="setGender('FEM.')">Mulher</button>
+						<button type="button" class="btn btn-secondary" (click)="setGender(null)">Tanto faz</button>
+					</div>
+			</div>
+
+
+		</div>
+
   </mat-step>
 
   <mat-step label="Cor/raça">
-	<div align="end">
-		<button mat-button matStepperPrevious>Anterior</button>
-		<button mat-button matStepperNext>Próximo</button>    	
-	</div>
+
   </mat-step>
 
   <mat-step label="Escolaridade">
-	<div align="end">
-		<button mat-button matStepperPrevious>Anterior</button>
-		<button mat-button matStepperNext>Próximo</button>    	
-	</div> 
+	
   </mat-step>
 
   <mat-step label="Carreira política">
-    <div align="end">
-		<button mat-button matStepperPrevious>Anterior</button>
-	</div>
+    
   </mat-step>
 </mat-vertical-stepper>

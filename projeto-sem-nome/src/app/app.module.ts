@@ -14,6 +14,7 @@ import { FilterComponent } from './filter/filter.component';
 import { CandidatesListComponent } from './candidates-list/candidates-list.component';
 import { CandidatesService } from './services/candidates.service'
 import { TitleCasePipe } from './pipes/title-case'
+import { FilterCandidatesPipe } from './pipes/filter-candidates'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TitleCasePipe } from './pipes/title-case'
     HomeComponent,
     FilterComponent,
     CandidatesListComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    FilterCandidatesPipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,9 @@ import { TitleCasePipe } from './pipes/title-case'
     MatStepperModule,
     MatIconModule
   ],
-  exports: [TitleCasePipe],
+  exports: [
+    TitleCasePipe,
+    FilterCandidatesPipe],
   providers: [CandidatesService],
   bootstrap: [AppComponent]
 })
