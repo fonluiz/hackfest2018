@@ -1,5 +1,6 @@
 var express = require('express');
 var pool = require('../config/db_config.js');
+import { filterService } from '../services/filterService';
 
 const router = express.Router();
 
@@ -12,6 +13,15 @@ router.get('/', (req, res) => {
 router.get('/deputado', (req, res) => {
     let parameters = [];
     const query = "SELECT * FROM dep_federal;";
+
+});
+
+router.get('/cadastrais', (req, res) => {    
+    let parameters = [req.query.genero, req.query.escolaridade, req.query.corRaca, req.query.novo, req.query.estado, req.query.cargo];    
+    filterService.criaConsulta(req);
+
+    const query = "SELECT * FROM dep_federal" 
+    parameters = "";
 
     execSQLQuery(query, parameters, res);
 });
