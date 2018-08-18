@@ -8,7 +8,7 @@ import { CandidatesService } from "../services/candidates.service";
 })
 export class CandidatesListComponent implements OnInit {
 
-  candidates: any[];
+  candidates: any;
 
   constructor (
    private candidatesService: CandidatesService
@@ -17,9 +17,15 @@ export class CandidatesListComponent implements OnInit {
   ngOnInit() {
     this.candidatesService.getAllCandidates().subscribe(
       candidates => {
-        // this.candidates = candidates;
+        this.candidates = candidates;
+
+        for (var i = 0; i < this.candidates.length; i++) {
+          console.log(this.candidates[i].Nome_urna)          
+        }
+        console.log(candidates);
       }
     )
+
   }
 
 }
