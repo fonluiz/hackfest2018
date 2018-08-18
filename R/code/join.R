@@ -4,7 +4,7 @@ library(jsonlite)
 
 recupera_dados <- function(id_candidato, estado) {
   url <- paste0("http://divulgacandcontas.tse.jus.br/divulga/rest/v1/candidatura/buscar/2018/",estado)
-  url <- paste0(url,"/PB/2022802018/candidato/")
+  url <- paste0(url,"/2022802018/candidato/")
   json <- paste0(paste0(url, id_candidato), ".json")
   message(json)
   
