@@ -22,7 +22,7 @@ router.get('/cadastrais', (req, res) => {
     
     let query = filterService.criaConsulta(parameters);
     let validParameters = filterService.getParametrosValidos(parameters);    
-    
+        
     execSQLQuery(query, validParameters, res);
 });
 
