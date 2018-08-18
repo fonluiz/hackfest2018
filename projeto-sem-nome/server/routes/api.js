@@ -8,11 +8,20 @@ router.get('/', (req, res) => {
     res.send('api works!');
 });
 
-router.get('/mensagem', (req, res) => {
-    const query = "SELECT * FROM teste;" 
-    const parameters = "";
+// Retorna a lista com todos os candidatos a deputado da eleição de 2018
+router.get('/deputado', (req, res) => {
+    let parameters = [];
+    const query = "SELECT * FROM dep_federal;";
 
     execSQLQuery(query, parameters, res);
+});
+
+// Retorna a lista com todos os candidatos a deputado da eleição de 2018
+router.get('/deputado/:id', (req, res) => {
+  let parameters = [req.params.id];
+  const query = "SELECT * FROM dep_federal WHERE ID = ?;";
+
+  execSQLQuery(query, parameters, res);
 });
 
 // Função Wrapper para executar consultas no banco, 
