@@ -1,10 +1,10 @@
 library(tidyverse)
 library(here)
-library(rjson)
+library(jsonlite)
 
-recupera_dados <- function(id_candidato,estado) {
+recupera_dados <- function(id_candidato, estado) {
   url <- paste0("http://divulgacandcontas.tse.jus.br/divulga/rest/v1/candidatura/buscar/2018/",estado)
-  url <- paste0(url,"/PB/2022802018/candidato/")
+  url <- paste0(url,"/2022802018/candidato/")
   json <- paste0(paste0(url, id_candidato), ".json")
   message(json)
   
@@ -19,7 +19,7 @@ recupera_dados <- function(id_candidato,estado) {
                               "Nacionalidade" = json_data$nacionalidade, "Grau_Instrucao" = json_data$grauInstrucao, 
                               "Ocupacao" = json_data$ocupacao, "UF_Nascimento" = json_data$sgUfNascimento, 
                               "Nome_Municipio_Nascimento" = json_data$nomeMunicipioNascimento, 
-                              "Local_Candidatura" = json_data$localCandidatura, "Sigla_Local" "Ultima_Atualzacao" = json_data$dataUltimaAtualizacao, 
+                              "Local_Candidatura" = json_data$localCandidatura, "Sigla_Local" = estado, "Ultima_Atualzacao" = json_data$dataUltimaAtualizacao, 
                               "Foto_Url" =  json_data$fotoUrl, "Flag_Concorrendo" = json_data$descricaoTotalizacao, 
                               "Coligacao" = json_data$composicaoColigacao,  "Total_Bens" = json_data$totalDeBens, 
                               "Partido" = json_data$partido$numero, "Sigla" = json_data$partido$sigla, 
@@ -35,12 +35,12 @@ recupera_dados <- function(id_candidato,estado) {
 }
 
 ## Recupera dados de candidatos no TSE a partir de uma lista de ids na eleição
-join_data <- function(list_id) {
-  info_candidates <- recupera_dados(list_id[1])
+join_data <- function(list_id, list_estado) {
+  info_candidates <- recupera_dados(list_id[1], list_estado[1])
   
   for (i in 2:length(list_id)) {
     print(i)
-    candidate <- recupera_dados(list_id[i])
+    candidate <- recupera_dados(list_id[i], list_estado[i])
     
     info_candidates <- info_candidates %>% 
       rbind(candidate)
@@ -50,10 +50,10 @@ join_data <- function(list_id) {
 }
 
 ## Lendo dados de id e nome
-lista_dep_federal <- read_delim(here("data/id_nome_estado.csv"), delim = ";", col_types = "cc")
+lista_dep_federal <- read_delim(here("data/id_nome_estado.csv"), delim = ";", col_types = "ccc")
 
 ## Processa para todos os ids de deputados recuperando informações cadastrais
-info_dep_federal <- join_data(lista_dep_federal$id,lista_dep_federal$estado)
+info_dep_federal <- join_data(lista_dep_federal$id, lista_dep_federal$estado)
 
 ## Salva csv resultante
 write_csv(info_dep_federal, here("data/info_dep_federal.csv"))
