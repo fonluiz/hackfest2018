@@ -1,26 +1,22 @@
 <div class="bmd-layout-container bmd-drawer-f-l kitchen-sink-drawer">
-    <header class="bmd-layout-header">
-      <div class="bg-faded">
-        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
-          <span class="sr-only">Toggle drawer</span>
-          <i class="material-icons">menu</i>
-        </button>
-   
-      </div>
-    </header>
-    <div id="dw-s1" class="bmd-layout-drawer bg-faded custom-bg">
-      <div>
-        <app-filter
-        (filterChange)="changeFilter($event)"
-        ></app-filter>
-      </div>
-      
+  <header class="bmd-layout-header">
+    <div class="bg-faded">
+      <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
+        <span class="sr-only">Toggle drawer</span>
+        <i class="material-icons">menu</i>
+      </button>
+
     </div>
-    <main class="bmd-layout-content">
-      <div class="container">
-        <app-candidates-list
-        [filter]="filter"
-        ></app-candidates-list>
-      </div>
-    </main>
+  </header>
+  <div id="dw-s1" class="bmd-layout-drawer bg-faded custom-bg">
+    <div>
+      <app-filter (filterChange)="changeFilter($event)"></app-filter>
+    </div>
+
   </div>
+  <main class="bmd-layout-content">
+    <div class="container">
+      <app-candidates-list [filter]="filter"></app-candidates-list>
+    </div>
+  </main>
+</div>
