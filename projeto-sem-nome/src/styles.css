@@ -2,3 +2,15 @@
 html, body, container {
     height: 100%;
 }
+
+body {
+    background: #DCEDC8;
+}
+
+
+/* cores:
+#AFB42B - verde escuro
+#F0F4C3 - verde claro
+#CDDC39 - verde limão
+#00BCD4 - azul
+*/
