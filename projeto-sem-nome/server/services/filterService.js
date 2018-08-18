@@ -28,14 +28,14 @@ export class filterService {
         parameters.forEach(function (item, indice, array) {            
             if (item !== undefined) {
                 if (filtros === '') {
-                    filtros = filtros + columns[indice] + ' = ?';    
+                    filtros = filtros + "d." + columns[indice] + ' = ?';    
                 } else {
-                    filtros = filtros + ' AND ' + columns[indice] + ' = ?';    
+                    filtros = filtros + ' AND ' + "d." + columns[indice] + ' = ?';    
                 }
             }
         });
 
-        query = "SELECT * from dep_federal WHERE " + filtros;
+        query = "SELECT * from dep_federal d, cod_grau_instrucao g, cod_cor_raca r, cod_ocupacao o, cod_estado_civil e WHERE " + filtros + "AND d.cod_grau_instrucao = g.cod_grau_instrucao AND d.cod_cor_raca = r.cod_cor_raca AND d.cod_ocupacao = o.cod_ocupacao AND d.cod_estado_civil = e.cod_estado_civil";
 
         return query;
     }
