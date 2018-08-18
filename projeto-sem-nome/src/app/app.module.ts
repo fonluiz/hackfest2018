@@ -15,13 +15,21 @@ import { CandidatesListComponent } from './candidates-list/candidates-list.compo
 import { CandidatesService } from './services/candidates.service'
 import { TitleCasePipe } from './pipes/title-case'
 
+import { CommonModule } from '@angular/common';
+import { PlotlyModule } from 'angular-plotly.js';
+import { EvolucaoPatrimonioComponent } from './evolucao-patrimonio/evolucao-patrimonio.component';
+import { EvolucaoCargoComponent } from './evolucao-cargo/evolucao-cargo.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FilterComponent,
     CandidatesListComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    EvolucaoPatrimonioComponent,
+    EvolucaoCargoComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +39,9 @@ import { TitleCasePipe } from './pipes/title-case'
     MatButtonModule, 
     MatCheckboxModule,
     MatStepperModule,
-    MatIconModule
+    MatIconModule,
+    CommonModule,
+    PlotlyModule
   ],
   exports: [TitleCasePipe],
   providers: [CandidatesService],
