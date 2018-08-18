@@ -96,7 +96,6 @@ CREATE TABLE dep_federal(
     cod_nacionalidade INT(3),
     cod_grau_instrucao INT(3),
     cod_ocupacao INT(3),
-    cod_partido INT(3),
 
     CONSTRAINT dep_federal_pk PRIMARY KEY(ID),
 
@@ -106,6 +105,6 @@ CREATE TABLE dep_federal(
     CONSTRAINT cod_nacionalidade_fk FOREIGN KEY(cod_nacionalidade) REFERENCES cod_nacionalidade(cod_nacionalidade),
     CONSTRAINT cod_grau_instrucao_fk FOREIGN KEY(cod_grau_instrucao) REFERENCES cod_grau_instrucao(cod_grau_instrucao),
     CONSTRAINT cod_ocupacao_fk FOREIGN KEY(cod_ocupacao) REFERENCES cod_ocupacao(cod_ocupacao),
-    CONSTRAINT cod_partido_fk FOREIGN KEY(cod_partido) REFERENCES cod_partido(Partido)
+    CONSTRAINT Partido_fk FOREIGN KEY(Partido) REFERENCES cod_partido(Partido)
 
 );
