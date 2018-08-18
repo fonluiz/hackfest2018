@@ -17,6 +17,23 @@
   margin-right: 6px;
 }
 
+.logo{
+  heigth: 200px;
+  width: 200px;
+  margin-top: 10px;
+}
+
+.line {
+  background-color: black;
+  heigth: 2px;
+  width: 300px;
+}
+
+.custom-tx{
+  text-align: end;
+  margin-top: -15px;
+}
+
 .kitchen-sink-drawer {
     $custom-size: 500px;
     @include bmd-drawer-x-out($custom-size);
