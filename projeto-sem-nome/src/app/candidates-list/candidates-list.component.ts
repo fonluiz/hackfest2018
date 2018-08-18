@@ -22,7 +22,6 @@ export class CandidatesListComponent implements OnInit {
         for (var i = 0; i < this.candidates.length; i++) {
           console.log(this.candidates[i].Nome_urna)          
         }
-        console.log(candidates);
       }
     )
 
