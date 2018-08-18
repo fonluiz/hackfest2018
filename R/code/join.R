@@ -38,7 +38,7 @@ recupera_dados <- function(id_candidato, estado) {
 join_data <- function(list_id, list_estado) {
   info_candidates <- recupera_dados(list_id[1], list_estado[1])
   
-  for (i in 2:length(list_id)) {
+  for (i in 950:length(list_id)) { ## 2:length
     print(i)
     candidate <- recupera_dados(list_id[i], list_estado[i])
     
