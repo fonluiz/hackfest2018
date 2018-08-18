@@ -11,12 +11,11 @@ router.get('/', (req, res) => {
 
 router.get('/cadastrais', (req, res) => {    
     let parameters = [req.query.genero, req.query.escolaridade, req.query.corRaca, req.query.novo, req.query.estado, req.query.cargo];    
-    filterService.criaConsulta(req);
-
-    const query = "SELECT * FROM dep_federal" 
-    parameters = "";
-
-    execSQLQuery(query, parameters, res);
+    
+    let query = filterService.criaConsulta(parameters);
+    let validParameters = filterService.getParametrosValidos(parameters);    
+    
+    execSQLQuery(query, validParameters, res);
 });
 
 // Função Wrapper para executar consultas no banco, 
