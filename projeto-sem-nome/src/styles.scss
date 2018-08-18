@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-// @import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-material-design/scss/bootstrap-material-design";
 
 html, body {
     height: 100%;
@@ -9,15 +10,8 @@ body {
     background: #DCEDC8;
 }
 
-// .kitchen-sink-drawer {
-//     $custom-size: 500px;
-//     @include bmd-drawer-x-out($custom-size);
-//     &:not(.bmd-drawer-out) {
-//       @each $breakpoint in map-keys($grid-breakpoints) {
-//         @include bmd-drawer-x-in-up($custom-size, $breakpoint);
-//       }
-//     }
-//   }
+
+
 
 /* cores:
 #AFB42B - verde escuro
