@@ -6,8 +6,7 @@ import urllib2
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-
-state = "PB"
+states = ["AC","AL","AP",'AM','BA', 'CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO']
 selected_role = "deputado_federal"
 roles = {}
 roles['governador'] = 3
@@ -17,21 +16,24 @@ roles['deputado_federal'] = 6
 roles['deputado_estadual'] = 7
 roles['suplente1'] = 9 
 roles['suplente2'] = 10
-url = 'http://divulgacandcontas.tse.jus.br/divulga/rest/v1/candidatura/listar/2018/' + state + '/2022802018/' + str(roles[selected_role]) + '/candidatos'
 
-req = urllib2.Request(url)
 
-response = urllib2.urlopen(req)
+text = '"id";"nome";"estado"\n'
+for state in states:
+	print state
+	url = 'http://divulgacandcontas.tse.jus.br/divulga/rest/v1/candidatura/listar/2018/' + state + '/2022802018/' + str(roles[selected_role]) + '/candidatos'
+	req = urllib2.Request(url)
 
-candidatos = response.read()
+	response = urllib2.urlopen(req)
 
-json = json.loads(candidatos)
+	candidatos = response.read()
 
-text = '"id";"nome"\n'
-for candidato in json["candidatos"]:
-	text +=  '"' + str(candidato["id"]) + '";'
-	text += '"' + candidato["nomeCompleto"] + '"\n'
+	data = json.loads(candidatos)
+	for candidato in data["candidatos"]:
+		text +=  '"' + str(candidato["id"]) + '";'
+		text += '"' + candidato["nomeCompleto"] + '";'
+		text += '"' + state + '"\n'
 
-arq = open("candidato_id_nome_"+ selected_role + "_" + state ,"w")
-arq.write(text)
-arq.close()
+	arq = open("id_nome_todos_estados_" + selected_role ,"w")
+	arq.write(text)
+	arq.close()

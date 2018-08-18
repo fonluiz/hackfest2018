@@ -2,9 +2,10 @@ library(tidyverse)
 library(here)
 library(rjson)
 
-recupera_dados <- function(id_candidato) {
-  
-  json <- paste0(paste0("http://divulgacandcontas.tse.jus.br/divulga/rest/v1/candidatura/buscar/2018/PB/2022802018/candidato/", id_candidato), ".json")
+recupera_dados <- function(id_candidato,estado) {
+  url <- paste0("http://divulgacandcontas.tse.jus.br/divulga/rest/v1/candidatura/buscar/2018/",estado)
+  url <- paste0(url,"/PB/2022802018/candidato/")
+  json <- paste0(paste0(url, id_candidato), ".json")
   message(json)
   
   json_file <- json
@@ -18,7 +19,7 @@ recupera_dados <- function(id_candidato) {
                               "Nacionalidade" = json_data$nacionalidade, "Grau_Instrucao" = json_data$grauInstrucao, 
                               "Ocupacao" = json_data$ocupacao, "UF_Nascimento" = json_data$sgUfNascimento, 
                               "Nome_Municipio_Nascimento" = json_data$nomeMunicipioNascimento, 
-                              "Local_Candidatura" = json_data$localCandidatura, "Ultima_Atualzacao" = json_data$dataUltimaAtualizacao, 
+                              "Local_Candidatura" = json_data$localCandidatura, "Sigla_Local" "Ultima_Atualzacao" = json_data$dataUltimaAtualizacao, 
                               "Foto_Url" =  json_data$fotoUrl, "Flag_Concorrendo" = json_data$descricaoTotalizacao, 
                               "Coligacao" = json_data$composicaoColigacao,  "Total_Bens" = json_data$totalDeBens, 
                               "Partido" = json_data$partido$numero, "Sigla" = json_data$partido$sigla, 
@@ -49,10 +50,10 @@ join_data <- function(list_id) {
 }
 
 ## Lendo dados de id e nome
-lista_dep_federal <- read_delim(here("data/id_nome.csv"), delim = ";", col_types = "cc")
+lista_dep_federal <- read_delim(here("data/id_nome_estado.csv"), delim = ";", col_types = "cc")
 
 ## Processa para todos os ids de deputados recuperando informações cadastrais
-info_dep_federal <- join_data(lista_dep_federal$id)
+info_dep_federal <- join_data(lista_dep_federal$id,lista_dep_federal$estado)
 
 ## Salva csv resultante
 write_csv(info_dep_federal, here("data/info_dep_federal.csv"))
