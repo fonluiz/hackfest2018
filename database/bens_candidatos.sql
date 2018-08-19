@@ -8,6 +8,5 @@ CREATE TABLE bens_candidatos(
     siglaUF VARCHAR(2),
     patrimonio DECIMAL(20),
 
-    CONSTRAINT bens_candidatos_pk PRIMARY KEY(anoEleicao),
-    CONSTRAINT bens_candidatos_pk PRIMARY KEY(cpfCandidato)
+    CONSTRAINT bens_candidatos_pk PRIMARY KEY(anoEleicao, cpfCandidato)
 );
