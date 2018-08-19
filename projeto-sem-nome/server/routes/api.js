@@ -31,30 +31,32 @@ router.get('/cadastrais', (req, res) => {
 // Retorna a lista com todos os candidatos a deputado da eleição de 2018
 router.get('/deputado/:id', (req, res) => {
   let parameters = [req.params.id];
-  const query = "SELECT * FROM dep_federal WHERE ID = ?;";
+  const query = "SELECT * from dep_federal d, cod_grau_instrucao g, cod_cor_raca r, cod_partido p, cod_ocupacao o, cod_estado_civil e WHERE d.cod_grau_instrucao = g.cod_grau_instrucao AND d.cod_cor_raca = r.cod_cor_raca AND d.cod_ocupacao = o.cod_ocupacao AND d.cod_estado_civil = e.cod_estado_civil AND d.Partido = p.Partido AND id = ?";
+
+  execSQLQuery(query, parameters, res);
+});
+
+// Retorna os patrimônios históricos de um deputado
+router.get('/patrimonio/:cpf', (req, res) => {
+  let parameters = [req.params.cpf];
+  const query = "SELECT * FROM bens_candidatos WHERE cpfCandidato = ?;";
 
   execSQLQuery(query, parameters, res);
 });
 
 // Função Wrapper para executar consultas no banco, 
 function execSQLQuery(sqlQuery, parameters, res) {
-
     pool.getConnection(function (err, connection) {
-
         if(err){
             console.log(err)
         }
-  
       connection.query(sqlQuery, parameters, function (error, results, fields) {
-  
         if (error) {
           res.status(400).json(error);
         } else {
           res.status(200).json(results);
         }
-  
         connection.release();
-  
       });
     });
   

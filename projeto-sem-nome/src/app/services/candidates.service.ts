@@ -16,4 +16,8 @@ export class CandidatesService {
   getAllCandidates() {
     return this.http.get(this.url + 'cadastrais');
   }
+
+  getCandidate(id: string) {
+    return this.http.get(this.url + 'deputado/' + id);
+  }
 }

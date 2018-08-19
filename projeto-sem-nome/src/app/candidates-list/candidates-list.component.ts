@@ -4,13 +4,13 @@ import { TitleCasePipe } from "../pipes/title-case"
 import { FilterCandidatesPipe } from '../pipes/filter-candidates'
 
 @Component({
-  selector: 'app-candidates-list',
-  templateUrl: './candidates-list.component.html',
-  styleUrls: ['./candidates-list.component.scss']
+  selector: "app-candidates-list",
+  templateUrl: "./candidates-list.component.html",
+  styleUrls: ["./candidates-list.component.scss"]
 })
 export class CandidatesListComponent implements OnInit {
-
-  @Input() filter: any;
+  @Input()
+  filter: any;
 
   previousFilter = undefined;
   candidates: any;
@@ -18,9 +18,7 @@ export class CandidatesListComponent implements OnInit {
   titleCasePipe = new TitleCasePipe();
   filterCandidatesPipe = new FilterCandidatesPipe();
 
-  constructor (
-   private candidatesService: CandidatesService
-  ) { }
+  constructor(private candidatesService: CandidatesService) {}
 
   ngOnInit() {
     this.candidatesService.getAllCandidates().subscribe(
