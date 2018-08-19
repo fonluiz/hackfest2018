@@ -1,31 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
 import { CandidatesService } from "../services/candidates.service";
-import { TitleCasePipe } from "../pipes/title-case"
+import { TitleCasePipe } from "../pipes/title-case";
 
 @Component({
-  selector: 'app-candidates-list',
-  templateUrl: './candidates-list.component.html',
-  styleUrls: ['./candidates-list.component.scss']
+  selector: "app-candidates-list",
+  templateUrl: "./candidates-list.component.html",
+  styleUrls: ["./candidates-list.component.scss"]
 })
 export class CandidatesListComponent implements OnInit {
-
-  @Input() filter: any;
+  @Input()
+  filter: any;
 
   candidates: any;
 
   titleCasePipe = new TitleCasePipe();
 
-  constructor (
-   private candidatesService: CandidatesService
-  ) { }
+  constructor(private candidatesService: CandidatesService) {}
 
   ngOnInit() {
-    this.candidatesService.getAllCandidates().subscribe(
-      candidates => {
-        this.candidates = candidates;
-      }
-    )
-
+    this.candidatesService.getAllCandidates().subscribe(candidates => {
+      this.candidates = candidates;
+    });
   }
-
 }
