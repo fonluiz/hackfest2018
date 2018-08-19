@@ -44,6 +44,22 @@ router.get('/patrimonio/:cpf', (req, res) => {
   execSQLQuery(query, parameters, res);
 });
 
+// Retorna a lista com todas as proposições de 2018
+router.get('/proposicao', (req, res) => {
+  let parameters = [];
+  const query = "SELECT * FROM cand_proposicoes_final;";
+
+  execSQLQuery(query, parameters, res);
+});
+
+// Retorna a lista com todas as proposições a partir de um id
+router.get('/proposicao/:nome', (req, res) => {
+  let parameters = [req.params.nome];
+  const query = "SELECT * FROM cand_proposicoes_final WHERE candidato_nome = ?;";
+  
+  execSQLQuery(query, parameters, res);
+});
+
 // Função Wrapper para executar consultas no banco, 
 function execSQLQuery(sqlQuery, parameters, res) {
     pool.getConnection(function (err, connection) {
