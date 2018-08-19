@@ -9,7 +9,6 @@ import { FilterCandidatesPipe } from '../pipes/filter-candidates'
   styleUrls: ["./candidates-list.component.scss"]
 })
 export class CandidatesListComponent implements OnInit {
-  @Input()
   filter: any;
 
   previousFilter = undefined;
