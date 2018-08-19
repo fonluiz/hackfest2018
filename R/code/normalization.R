@@ -2,7 +2,7 @@ library(tidyverse)
 library(here)
 
 ## Lendo dados
-dep_federal_original <- read.csv(here("data/info_dep_federal.csv"), stringsAsFactors = FALSE)
+dep_federal_original <- read.csv(here("data/info_dep_federal.csv"), colClasses=c("ID"="character", "CPF"="character"),stringsAsFactors = FALSE)
 
 ## Normalizando
 
