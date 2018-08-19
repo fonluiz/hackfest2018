@@ -6,36 +6,28 @@ import { CandidatesService } from "../services/candidates.service";
   templateUrl: "./evolucao-patrimonio.component.html",
   styleUrls: ["./evolucao-patrimonio.component.scss"]
 })
-export class EvolucaoPatrimonioComponent implements OnChanges {
-
-  @Input() cpf: string;
+export class EvolucaoPatrimonioComponent implements OnInit {
+  @Input()
+  cpf: string;
 
   public graph: any;
 
-  constructor(
-    private candidatesService: CandidatesService
-  ) {}
+  constructor(private candidatesService: CandidatesService) {}
 
-  ngOnChanges() {
-    this.candidatesService.getPossessions(this.cpf).subscribe(poss => {
-      const points = poss.map(p => Object({ anoEleicao: p.anoEleicao, patrimonio: p.patrimonio }))
-                  .map(p => [p.anoEleicao, p.patrimonio])
-                  .reduce((acc, current) => [[current[0]].concat(acc[0]), [current[1]].concat(acc[1])], [])
-                  .map(p => p.reverse());
-                  
-      this.graph = {
-          data: [
-            {
-              x: points[0],
-              y: points[1],
-              type: "scatter",
-              mode: "lines+markers",
-              marker: { color: "red" }
-            }
-          ],
-          layout: { width: "60%", height: 240, title: "Patrimônio" }
-        };
-      
-    });
+  ngOnInit() {
+    this.graph = {
+      data: [
+        {
+          x: ["2006", "2008", "2010", "2012", "2014", "2016"],
+          y: [10000, 45000.54, 45000.54, 500000, 700000, 1000000],
+          type: "scatter",
+
+          line: { shape: "spline" },
+          mode: "lines+markers",
+          marker: { color: "red" }
+        }
+      ],
+      layout: { width: "60%", height: 350, title: "Patrimônio" }
+    };
   }
 }
