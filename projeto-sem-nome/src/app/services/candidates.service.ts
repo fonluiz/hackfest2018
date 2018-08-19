@@ -29,4 +29,8 @@ export class CandidatesService {
   getNumProposicoes(nome: string) {
     return this.http.get(this.url + "proposicao/" + nome);
   }
+
+  getCarreira(cpf: string): Observable<any> {
+    return this.http.get(this.url + 'carreira/' + cpf);
+  }
 }
