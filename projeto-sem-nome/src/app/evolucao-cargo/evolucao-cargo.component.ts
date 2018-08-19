@@ -17,7 +17,7 @@ export class EvolucaoCargoComponent implements OnChanges {
   ) {}
 
   ngOnChanges() {
-    this.candidatesService.getPossessions(this.cpf).subscribe(poss => {
+    this.candidatesService.getCarreira(this.cpf).subscribe(poss => {
       const points = poss.map(p => Object({ anoEleicao: p.anoEleicao, patrimonio: p.patrimonio }))
                   .map(p => [p.anoEleicao, p.patrimonio])
                   .reduce((acc, current) => [[current[0]].concat(acc[0]), [current[1]].concat(acc[1])], [])

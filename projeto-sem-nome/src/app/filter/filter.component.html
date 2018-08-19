@@ -71,51 +71,34 @@
 
 		<div class="container">
 				<div class="row">
-						<p>Meu candidato(a) deve ter:</p>
-					</div>
-				
-					<div class="radio">
-						<label class="radio-inline field-gray">
-							<input type="radio" name="schoolingRadios" id="schoolingRadios2" (click)="setSchooling('Ensino Fundamental incompleto')"> Ensino Fundamental incompleto
-						</label> 
-					</div>
-					
-					<div class="radio">
-						<label class="radio-inline field-gray">
-							<input type="radio"  name="schoolingRadios" id="schoolingRadios1" (click)="setSchooling('Ensino Fundamental completo')"> Ensino Fundamental completo
-						</label> 
-					</div>
-							
-					<div class="radio">
-						<label class="radio-inline field-gray">
-							<input type="radio" name="schoolingRadios" id="schoolingRadios4" (click)="setSchooling('Ensino Médio incompleto')" value="option1"> Ensino Médio incompleto
-						</label> 
-					</div>
-					
-					<div class="radio">
-						<label class="radio-inline field-gray">
-							<input type="radio" name="schoolingRadios" id="schoolingRadios3" (click)="setSchooling('Ensino Médio completo')" value="option1"> Ensino Médio completo
-						</label> 
-					</div>
+					<p>Meu candidato deve ter:</p>
+				</div>
+			
+				<div class="radio">
+					<label class="radio-inline field-gray">
+						<input type="radio"  name="educationRadios" id="educationRadios1" (click)="setEducation(1)"> Ensino Fundamental
+					</label> 
+				</div>
 
-					
-					<div class="radio">
-						<label class="radio-inline field-gray">
-							<input type="radio" name="schoolingRadios" id="schoolingRadios6" (click)="setSchooling('Superior incompleto')" value="option1"> Superior incompleto
-						</label> 
-					</div>
-					
-					<div class="radio">
-						<label class="radio-inline field-gray">
-							<input type="radio" name="schoolingRadios" id="schoolingRadios5" (click)="setSchooling('Superior completo')" value="option1"> Superior completo
-						</label> 
-					</div>
-					<div class="radio">
-						<label class="radio-inline field-gray">
-							<input type="radio" name="schoolingRadios" id="schoolingRadios7"  (click)="setSchooling(null)" value="option1"> Indiferente
-						</label> 
-					</div>
-			</div>
+				<div class="radio">
+					<label class="radio-inline field-gray">
+						<input type="radio"  name="educationRadios" id="educationRadios2" (click)="setEducation(3)"> Ensino Médio
+					</label> 
+				</div>
+
+				<div class="radio">
+					<label class="radio-inline field-gray">
+						<input type="radio"  name="educationRadios" id="educationRadios3" (click)="setEducation(5)"> Ensino Superior
+					</label> 
+				</div>
+
+				<div class="radio">
+					<label class="radio-inline field-gray">
+						<input type="radio"  name="educationRadios" id="educationRadios3" (click)="setEducation(null)"> Indiferente
+					</label> 
+				</div>
+				
+		</div>	
 	
   </mat-step>
 

@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
 
   private changeFilter(filter) {
     this.filter = filter;
-    console.log(this.filter)
   }
 
 }

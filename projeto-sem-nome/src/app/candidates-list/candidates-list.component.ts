@@ -15,7 +15,6 @@ export class CandidatesListComponent implements OnInit {
   candidates: any;
 
   titleCasePipe = new TitleCasePipe();
-  filterCandidatesPipe = new FilterCandidatesPipe();
 
   constructor(private candidatesService: CandidatesService) {}
 

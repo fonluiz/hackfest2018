@@ -16,9 +16,8 @@ export class FilterCandidatesPipe implements PipeTransform {
     }
 
     let result = items;
-    console.log(filter.Genero)
+
     if (filter.Genero) {
-      console.log(filter.Genero.toLowerCase());
       result = result.filter( cand => {        
         return cand.Genero.toLowerCase() == filter.Genero.toLowerCase();
       });
@@ -30,12 +29,12 @@ export class FilterCandidatesPipe implements PipeTransform {
       });
     }
 
-    if (filter.Grau_Instrucao) {
+    if (filter.cod_grau_instrucao) {
       result = result.filter( cand => {
-        return cand.Grau_Instrucao.toLowerCase() == filter.Grau_Instrucao.toLowerCase();
+        return cand.cod_grau_instrucao >= filter.cod_grau_instrucao;
       });
     }
-    
+
     return result;
    }
 }

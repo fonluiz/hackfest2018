@@ -50,10 +50,14 @@ join_data <- function(list_id, list_estado) {
 }
 
 ## Lendo dados de id e nome
-lista_dep_federal <- read_delim(here("data/id_nome_estado.csv"), delim = ";", col_types = "ccc")
-
+lista_dep_federal <- read_delim(here("data/id_nome_estado.csv"), delim = ";", col_types = "ccc") %>% 
+  filter(estado == "PB")
+  
 ## Processa para todos os ids de deputados recuperando informações cadastrais
-info_dep_federal <- join_data(lista_dep_federal$id, lista_dep_federal$estado)
+info_dep_federal <- join_data(lista_dep_federal$id, lista_dep_federal$estado) 
+
+info_dep_federal <- info_dep_federal %>% 
+  mutate(ID = as.character(ID), CPF = as.character(CPF))
 
 ## Salva csv resultante
-write_csv(info_dep_federal, here("data/info_dep_federal.csv"))
+write.csv(info_dep_federal, here("data/info_dep_federal.csv"), row.names = FALSE)
