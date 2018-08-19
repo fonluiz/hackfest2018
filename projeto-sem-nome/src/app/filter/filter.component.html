@@ -8,19 +8,19 @@
 
 		<div class="radio">
 			<label class="radio-inline">
-				<input type="radio"  name="genderRadios" id="genderRadios1" (click)="setGender('MASC.')"> CANDIDATO
+				<input type="radio"  name="genderRadios" id="genderRadios1" (click)="setGender('MASC.')"> Candidato
 			</label> 
 		</div>
 
 		<div class="radio">
 			<label class="radio-inline">
-				<input type="radio"	 name="genderRadios" id="genderRadios2" (click)="setGender('FEM.')"> CANDIDATA
+				<input type="radio"	 name="genderRadios" id="genderRadios2" (click)="setGender('FEM.')"> Candidata
 			</label> 
 		</div>
 		
 		<div class="radio">
 			<label class="radio-inline">
-				<input type="radio"  name="genderRadios" id="genderRadios3" (click)="setGender(null)"> INDIFERENTE
+				<input type="radio"  name="genderRadios" id="genderRadios3" (click)="setGender(null)"> Indiferente
 			</label> 
 		</div>
 	</div>
@@ -36,31 +36,31 @@
 		
 				<div class="radio">
 					<label class="radio-inline">
-						<input type="radio"  name="raceRadios" id="raceRadios1" (click)="setRace('AMARELA')"> AMARELA
+						<input type="radio"  name="raceRadios" id="raceRadios1" (click)="setRace('AMARELA')"> Amarela
 					</label> 
 				</div>
 		
 				<div class="radio">
 					<label class="radio-inline">
-						<input type="radio" name="raceRadios" id="raceRadios2" (click)="setRace('BRANCA')"> BRANCA
+						<input type="radio" name="raceRadios" id="raceRadios2" (click)="setRace('BRANCA')"> Branca
 					</label> 
 				</div>
 				
 				<div class="radio">
 					<label class="radio-inline">
-						<input type="radio" name="raceRadios" id="raceRadios3" (click)="setRace('PARDA')" value="option1"> PARDA
+						<input type="radio" name="raceRadios" id="raceRadios3" (click)="setRace('PARDA')" value="option1"> Parda
 					</label> 
 				</div>
 		
 				<div class="radio">
 					<label class="radio-inline">
-						<input type="radio" name="raceRadios" id="raceRadios4" (click)="setRace('PRETA')" value="option1"> PRETA
+						<input type="radio" name="raceRadios" id="raceRadios4" (click)="setRace('PRETA')" value="option1"> Preta
 					</label> 
 				</div>
 		
 				<div class="radio">
 					<label class="radio-inline">
-						<input type="radio" name="raceRadios" id="raceRadios5"  (click)="setRace(null)" value="option1"> INDIFERENTE
+						<input type="radio" name="raceRadios" id="raceRadios5"  (click)="setRace(null)" value="option1"> Indiferente
 					</label> 
 				</div>
 		</div>
@@ -68,6 +68,54 @@
 	</mat-step>
 
   <mat-step label="Escolaridade">
+
+		<div class="container">
+				<div class="row">
+						<p>Meu candidato(a) deve ter:</p>
+					</div>
+			
+					<div class="radio">
+						<label class="radio-inline">
+							<input type="radio"  name="schoolingRadios" id="schoolingRadios1" (click)="setSchooling('Ensino Fundamental completo')"> Ensino Fundamental completo
+						</label> 
+					</div>
+			
+					<div class="radio">
+						<label class="radio-inline">
+							<input type="radio" name="schoolingRadios" id="schoolingRadios2" (click)="setSchooling('Ensino Fundamental incompleto')"> Ensino Fundamental incompleto
+						</label> 
+					</div>
+					
+					<div class="radio">
+						<label class="radio-inline">
+							<input type="radio" name="schoolingRadios" id="schoolingRadios3" (click)="setSchooling('Ensino Médio completo')" value="option1"> Ensino Médio completo
+						</label> 
+					</div>
+			
+					<div class="radio">
+						<label class="radio-inline">
+							<input type="radio" name="schoolingRadios" id="schoolingRadios4" (click)="setSchooling('Ensino Médio incompleto')" value="option1"> Ensino Médio incompleto
+						</label> 
+					</div>
+
+					<div class="radio">
+						<label class="radio-inline">
+							<input type="radio" name="schoolingRadios" id="schoolingRadios5" (click)="setSchooling('Superior completo')" value="option1"> Superior completo
+						</label> 
+					</div>
+
+					<div class="radio">
+						<label class="radio-inline">
+							<input type="radio" name="schoolingRadios" id="schoolingRadios6" (click)="setSchooling('Superior incompleto')" value="option1"> Superior incompleto
+						</label> 
+					</div>
+			
+					<div class="radio">
+						<label class="radio-inline">
+							<input type="radio" name="schoolingRadios" id="schoolingRadios7"  (click)="setSchooling(null)" value="option1"> Indiferente
+						</label> 
+					</div>
+			</div>
 	
   </mat-step>
 
