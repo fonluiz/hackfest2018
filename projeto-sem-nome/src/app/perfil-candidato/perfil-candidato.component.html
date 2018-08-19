@@ -1,23 +1,24 @@
-<div class="container my-5">
+<div class="container my-5 perfil">
   <div class="header">
     <div class="photo row justify-content-center">
-      <img src="{{ candidate?.Foto_Url }}">
+      <img src="{{ candidate?.Foto_Url }}" style="border-radius: 5px">
     </div>
     <div class="details-area my-3">
       <div class="row justify-content-center">
-        <h3 class="detail-name">{{ candidate?.Nome_urna | titleCase }}</h3>
+        <h3 class="detail-name" style="font-size: 2rem">{{ candidate?.Nome_urna | titleCase }}</h3>
       </div>
+      <hr>
       <div class="details-info row justify-content-center mt-2">
         <div class="col-10 col-md-5">          
-          <p class="details-item text-right">Partido: {{ candidate?.Sigla }}</p>
-          <p class="details-item text-right">Gênero: {{ (candidate?.Genero === 'FEM.') ? 'Feminino' : 'Masculino'}}</p>
-          <p class="details-item text-right">Grau de Instrução: {{ candidate?.Grau_Instrucao | titleCase}}</p>          
-          <p class="details-item text-right">Estado Civil: {{ candidate?.Estado_Civil | titleCase }}</p>
+          <p class="details-item text-right">Partido: <strong class="valor-propriedade">{{ candidate?.Sigla }}</strong> </p>
+          <p class="details-item text-right">Gênero: <strong class="valor-propriedade">{{ (candidate?.Genero === 'FEM.') ? 'Feminino' : 'Masculino'}}</strong> </p>
+          <p class="details-item text-right">Grau de Instrução: <strong class="valor-propriedade"> {{ candidate?.Grau_Instrucao | titleCase}}</strong></p>          
+          <p class="details-item text-right">Estado Civil: <strong class="valor-propriedade">{{ candidate?.Estado_Civil | titleCase }}</strong></p>
         </div>
         <div class="col-10 col-md-5">          
-          <p class="details-item text-left">Local: {{candidate?.Local_Candidatura | titleCase }}</p>
-          <p class="details-item text-left">Raça: {{ candidate?.Cor_Raca | titleCase }}</p> 
-          <p class="details-item text-left">Ocupação: {{ candidate?.Ocupacao | titleCase }}</p>
+          <p class="details-item text-left">Local: <strong class="valor-propriedade">{{candidate?.Local_Candidatura | titleCase }}</strong></p>
+          <p class="details-item text-left">Raça: <strong class="valor-propriedade">{{ candidate?.Cor_Raca | titleCase }}</strong></p> 
+          <p class="details-item text-left">Ocupação: <strong class="valor-propriedade"> {{ candidate?.Ocupacao | titleCase }}</strong></p>
         </div>
       </div>
     </div>

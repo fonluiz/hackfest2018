@@ -4,12 +4,12 @@
 
 .kitchen-sink-drawer-static {
     $custom-size: 500px;
-    @include bmd-drawer-x-out($custom-size); // closed by default
     @include bmd-drawer-x-in($custom-size); // triggered with bmd-drawer-in
+    @include bmd-drawer-x-out($custom-size); // closed by default
     @include bmd-drawer-x-overlay(); // overlay by default, no other classes necessary
   }
 .custom-bg{
-    background-color: white;
+    background-color: #222f3e;
 }
 
 .button-row button,
@@ -20,13 +20,17 @@
 .logo{
   heigth: 200px;
   width: 200px;
-  margin-top: 10px;
 }
 
 .line {
   background-color: black;
   heigth: 2px;
   width: 300px;
+}
+
+hr {
+  border-color: #BBBEC0;
+  margin-top: 0;
 }
 
 .custom-tx{

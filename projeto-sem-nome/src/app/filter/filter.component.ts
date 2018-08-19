@@ -31,6 +31,7 @@ export class FilterComponent implements OnInit {
   }
 
   emitFilter() {
+    console.log(this.gender, this.race)
     this.filterChange.emit(
       {Genero: this.gender,
       Cor_Raca: this.race}
