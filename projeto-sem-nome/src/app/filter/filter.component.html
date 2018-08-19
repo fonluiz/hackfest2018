@@ -1,47 +1,71 @@
 <mat-vertical-stepper class="custom-bg">
   <mat-step label="Gênero" >
-		<div class="container">
+	<div class="container">
 
-			<div class="row">
-				<p>Qual você prefere?</p>
-			</div>
-
-			<div class="radio">
-				<label class="radio-inline">
-					<input type="radio" name="inlineRadioOptions" id="inlineRadio1" 
-					(click)="setGender('MASC.')"> HOMEM
-				</label> 
-			</div>
-
-			<div class="radio">
-				<label class="radio-inline">
-					<input type="radio" name="inlineRadioOptions" id="inlineRadio1"
-					(click)="setGender('FEM.')"> MULHER
-				</label> 
-			</div>
-			
-			<div class="radio">
-				<label class="radio-inline">
-					<input type="radio" name="inlineRadioOptions" id="inlineRadio1"
-					(click)="setGender(null)" value="option1"> INDIFERENTE
-				</label> 
-			</div>
+		<div class="row">
+			<p>Qual você prefere?</p>
 		</div>
 
-  </mat-step>
+		<div class="radio">
+			<label class="radio-inline">
+				<input type="radio"  name="genderRadios" id="genderRadios1" (click)="setGender('MASC.')"> HOMEM
+			</label> 
+		</div>
 
-  <mat-step label="Cor/raça">
-
-	<div class="row">
-		<div class="btn-group" role="group" aria-label="Basic example">
-				<button type="button" class="btn btn-secondary" (click)="setGender('MASC.')">amarela</button>
-				<button type="button" class="btn btn-secondary" (click)="setGender('FEM.')">branca</button>
-				<button type="button" class="btn btn-secondary" (click)="setGender(null)">parda</button>
-				
-			</div>
+		<div class="radio">
+			<label class="radio-inline">
+				<input type="radio"	 name="genderRadios" id="genderRadios2" (click)="setGender('FEM.')"> MULHER
+			</label> 
+		</div>
+		
+		<div class="radio">
+			<label class="radio-inline">
+				<input type="radio"  name="genderRadios" id="genderRadios3" (click)="setGender(null)"> INDIFERENTE
+			</label> 
+		</div>
 	</div>
 
   </mat-step>
+
+	<mat-step label="Cor/raça">
+
+		<div class="container">
+			<div class="row">
+					<p>Qual você prefere?</p>
+				</div>
+		
+				<div class="radio">
+					<label class="radio-inline">
+						<input type="radio"  name="raceRadios" id="raceRadios1" (click)="setRace('AMARELA')"> AMARELA
+					</label> 
+				</div>
+		
+				<div class="radio">
+					<label class="radio-inline">
+						<input type="radio" name="raceRadios" id="raceRadios2" (click)="setRace('BRANCA')"> BRANCA
+					</label> 
+				</div>
+				
+				<div class="radio">
+					<label class="radio-inline">
+						<input type="radio" name="raceRadios" id="raceRadios3" (click)="setRace('PARDA')" value="option1"> PARDA
+					</label> 
+				</div>
+		
+				<div class="radio">
+					<label class="radio-inline">
+						<input type="radio" name="raceRadios" id="raceRadios4" (click)="setRace('PRETA')" value="option1"> PRETA
+					</label> 
+				</div>
+		
+				<div class="radio">
+					<label class="radio-inline">
+						<input type="radio" name="raceRadios" id="raceRadios5"  (click)="setRace(null)" value="option1"> INDIFERENTE
+					</label> 
+				</div>
+		</div>
+
+	</mat-step>
 
   <mat-step label="Escolaridade">
 	

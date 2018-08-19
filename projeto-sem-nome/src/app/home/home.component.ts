@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   private changeFilter(filter) {
-    this.filter = filter
+    this.filter = filter;
   }
 
 }
