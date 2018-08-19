@@ -8,26 +8,27 @@
         <h3 class="detail-name">{{ candidate?.Nome_urna | titleCase }}</h3>
       </div>
       <div class="details-info row justify-content-center mt-2">
-        <div class="col-10 col-md-5">          
+        <div class="col-10 col-md-5">
           <p class="details-item text-right">Partido: {{ candidate?.Sigla }}</p>
           <p class="details-item text-right">Gênero: {{ (candidate?.Genero === 'FEM.') ? 'Feminino' : 'Masculino'}}</p>
-          <p class="details-item text-right">Grau de Instrução: {{ candidate?.Grau_Instrucao | titleCase}}</p>          
+          <p class="details-item text-right">Grau de Instrução: {{ candidate?.Grau_Instrucao | titleCase}}</p>
           <p class="details-item text-right">Estado Civil: {{ candidate?.Estado_Civil | titleCase }}</p>
         </div>
-        <div class="col-10 col-md-5">          
+        <div class="col-10 col-md-5">
           <p class="details-item text-left">Local: {{candidate?.Local_Candidatura | titleCase }}</p>
-          <p class="details-item text-left">Raça: {{ candidate?.Cor_Raca | titleCase }}</p> 
+          <p class="details-item text-left">Raça: {{ candidate?.Cor_Raca | titleCase }}</p>
           <p class="details-item text-left">Ocupação: {{ candidate?.Ocupacao | titleCase }}</p>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class="activity my-3">
     <div class="row justify-content-center">
       <div class="propositions col-10 col-md-5 text-right">
         <h4>Atuação</h4>
-        <p><span class="propositions-count">X</span> proposições feitas</p>
+        <p>
+          <span class="propositions-count">{{ numProposicoes }}</span> proposições feitas</p>
       </div>
       <div class="contact col-10 col-md-5 text-left">
         <h4>Contato</h4>
@@ -40,8 +41,12 @@
   <div class="vis-panel row justify-content-center">
     <div class="col-10 col-md-8">
       <h4 class="text-center">Visualizações</h4>
-      <div class="vis"><app-evolucao-cargo></app-evolucao-cargo></div>
-      <div class="vis"><app-evolucao-patrimonio></app-evolucao-patrimonio></div>      
+      <div class="vis">
+        <app-evolucao-cargo></app-evolucao-cargo>
+      </div>
+      <div class="vis">
+        <app-evolucao-patrimonio></app-evolucao-patrimonio>
+      </div>
     </div>
   </div>
 
