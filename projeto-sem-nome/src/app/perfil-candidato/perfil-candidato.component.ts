@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CandidatesService } from '../services/candidates.service';
+import { Router, ActivatedRoute } from '../../../node_modules/@angular/router';
+import { Location } from '../../../node_modules/@angular/common';
 
 @Component({
   selector: 'app-perfil-candidato',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilCandidatoComponent implements OnInit {
 
-  constructor() { }
+  candidateId: string;
+  candidate: any;
+
+  constructor(
+    private candidatesService: CandidatesService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.candidateId = params['id'];
+      console.dir(this.candidateId);
+      this.candidatesService.getCandidate(this.candidateId).subscribe(
+        cand => this.candidate = cand[0]
+      );
+    })
+    
   }
 
 }

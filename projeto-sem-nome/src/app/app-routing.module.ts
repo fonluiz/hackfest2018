@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'perfil', component: PerfilCandidatoComponent },
+    { path: 'perfil/:id', component: PerfilCandidatoComponent },
     { path: '**', component: PageNotFoundComponent }
   ];
 

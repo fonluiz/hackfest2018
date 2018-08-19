@@ -31,7 +31,7 @@ router.get('/cadastrais', (req, res) => {
 // Retorna a lista com todos os candidatos a deputado da eleição de 2018
 router.get('/deputado/:id', (req, res) => {
   let parameters = [req.params.id];
-  const query = "SELECT * FROM dep_federal WHERE ID = ?;";
+  const query = "SELECT * from dep_federal d, cod_grau_instrucao g, cod_cor_raca r, cod_partido p, cod_ocupacao o, cod_estado_civil e WHERE d.cod_grau_instrucao = g.cod_grau_instrucao AND d.cod_cor_raca = r.cod_cor_raca AND d.cod_ocupacao = o.cod_ocupacao AND d.cod_estado_civil = e.cod_estado_civil AND d.Partido = p.Partido AND id = ?";
 
   execSQLQuery(query, parameters, res);
 });
