@@ -1,35 +1,37 @@
-<div class="container my-5">
+<div class="container my-5 perfil">
   <div class="header">
     <div class="photo row justify-content-center">
       <img src="{{ candidate?.Foto_Url }}">
     </div>
-    <div class="details-area">
+    <div class="details-area my-3">
       <div class="row justify-content-center">
-        <h3 class="detail-name">{{ candidate?.Nome_urna | titleCase }}</h3>
+        <h3 class="detail-name" style="font-size: 2rem">{{ candidate?.Nome_urna | titleCase }}</h3>
       </div>
-      <div class="details-info row justify-content-center">
+      <hr>
+      <div class="details-info row justify-content-center mt-2">
         <div class="col-10 col-md-5">          
-          <p class="details-item">Partido: {{ candidate?.Sigla }}</p>
-          <p class="details-item">Gênero: {{ (candidate?.Genero === 'FEM.') ? 'Feminino' : 'Masculino'}}</p>
-          <p class="details-item">Grau de Instrução: {{ candidate?.Grau_Instrucao | titleCase}}</p>          
-          <p class="details-item">Estado Civil: {{ candidate?.Estado_Civil | titleCase }}</p>
+          <p class="details-item text-right">Partido: <strong class="valor-propriedade">{{ candidate?.Sigla }}</strong> </p>
+          <p class="details-item text-right">Gênero: <strong class="valor-propriedade">{{ (candidate?.Genero === 'FEM.') ? 'Feminino' : 'Masculino'}}</strong> </p>
+          <p class="details-item text-right">Grau de Instrução: <strong class="valor-propriedade"> {{ candidate?.Grau_Instrucao | titleCase}}</strong></p>          
+          <p class="details-item text-right">Estado Civil: <strong class="valor-propriedade">{{ candidate?.Estado_Civil | titleCase }}</strong></p>
         </div>
         <div class="col-10 col-md-5">          
-          <p class="details-item">Local: {{candidate?.Local_Candidatura | titleCase }}</p>
-          <p class="details-item">Raça: {{ candidate?.Cor_Raca | titleCase }}</p> 
-          <p class="details-item">Ocupação: {{ candidate?.Ocupacao | titleCase }}</p>
+          <p class="details-item text-left">Local: <strong class="valor-propriedade">{{candidate?.Local_Candidatura | titleCase }}</strong></p>
+          <p class="details-item text-left">Raça: <strong class="valor-propriedade">{{ candidate?.Cor_Raca | titleCase }}</strong></p> 
+          <p class="details-item text-left">Ocupação: <strong class="valor-propriedade"> {{ candidate?.Ocupacao | titleCase }}</strong></p>
         </div>
       </div>
     </div>
   </div>
   
-  <div class="activity">
+  <div class="activity my-3">
     <div class="row justify-content-center">
-      <div class="propositions col-10 col-md-5">
+      <div class="propositions col-10 col-md-5 text-right">
         <h4>Atuação</h4>
-        <p><span class="propositions-count">X</span> proposições feitas</p>
+        <p>
+          <span class="propositions-count">{{ numProposicoes }}</span> proposições feitas</p>
       </div>
-      <div class="contact col-10 col-md-5">
+      <div class="contact col-10 col-md-5 text-left">
         <h4>Contato</h4>
         <p>{{ candidate?.Email | lowercase }}</p>
         <p></p>
@@ -38,11 +40,10 @@
   </div>
 
   <div class="vis-panel row justify-content-center">
-    <div class="col-10 col-md-5">
-      <h4>Visualizações</h4>
-      <div class="vis"><img src="https://via.placeholder.com/640x400"></div>
-      <div class="vis"><img src="https://via.placeholder.com/640x400"></div>
-      <div class="vis"><img src="https://via.placeholder.com/640x400"></div>
+    <div class="col-10 col-md-8">
+      <h4 class="text-center">Visualizações</h4>
+      <div class="vis"><app-evolucao-cargo></app-evolucao-cargo></div>
+      <div class="vis"><app-evolucao-patrimonio [cpf]="candidate?.CPF"></app-evolucao-patrimonio></div>      
     </div>
   </div>
 

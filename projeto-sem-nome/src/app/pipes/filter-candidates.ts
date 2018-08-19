@@ -18,7 +18,7 @@ export class FilterCandidatesPipe implements PipeTransform {
     let result = items;
 
     if (filter.Genero) {
-      result = result.filter( cand => {
+      result = result.filter( cand => {        
         return cand.Genero.toLowerCase() == filter.Genero.toLowerCase();
       });
     }

@@ -1,26 +1,26 @@
-<mat-vertical-stepper class="custom-bg">
+<mat-vertical-stepper class="custom-bg" style="color: #dfe6e9;    background-color: #222f3e;">
   <mat-step label="Gênero" >
 	<div class="container">
 
 		<div class="row">
-			<p>Qual você prefere?</p>
+			<p>Estou procurando um(a):</p>
 		</div>
 
 		<div class="radio">
-			<label class="radio-inline">
-				<input type="radio"  name="genderRadios" id="genderRadios1" (click)="setGender('MASC.')"> HOMEM
+			<label class="radio-inline field-gray">
+				<input type="radio"  name="genderRadios" id="genderRadios1" (click)="setGender('MASC.')"> Candidato
 			</label> 
 		</div>
 
 		<div class="radio">
-			<label class="radio-inline">
-				<input type="radio"	 name="genderRadios" id="genderRadios2" (click)="setGender('FEM.')"> MULHER
+			<label class="radio-inline field-gray">
+				<input type="radio"	 name="genderRadios" id="genderRadios2" (click)="setGender('FEM.')"> Candidata
 			</label> 
 		</div>
 		
 		<div class="radio">
-			<label class="radio-inline">
-				<input type="radio"  name="genderRadios" id="genderRadios3" (click)="setGender(null)"> INDIFERENTE
+			<label class="radio-inline field-gray">
+				<input type="radio"  name="genderRadios" id="genderRadios3" (click)="setGender(null)"> Indiferente
 			</label> 
 		</div>
 	</div>
@@ -31,36 +31,36 @@
 
 		<div class="container">
 			<div class="row">
-					<p>Qual você prefere?</p>
+					<p>Meu candidato(a) deve ser da cor/raça:</p>
 				</div>
 		
 				<div class="radio">
-					<label class="radio-inline">
-						<input type="radio"  name="raceRadios" id="raceRadios1" (click)="setRace('AMARELA')"> AMARELA
+					<label class="radio-inline field-gray">
+						<input type="radio"  name="raceRadios" id="raceRadios1" (click)="setRace('AMARELA')"> Amarela
 					</label> 
 				</div>
 		
 				<div class="radio">
-					<label class="radio-inline">
-						<input type="radio" name="raceRadios" id="raceRadios2" (click)="setRace('BRANCA')"> BRANCA
+					<label class="radio-inline field-gray">
+						<input type="radio" name="raceRadios" id="raceRadios2" (click)="setRace('BRANCA')"> Branca
 					</label> 
 				</div>
 				
 				<div class="radio">
-					<label class="radio-inline">
-						<input type="radio" name="raceRadios" id="raceRadios3" (click)="setRace('PARDA')" value="option1"> PARDA
+					<label class="radio-inline field-gray">
+						<input type="radio" name="raceRadios" id="raceRadios3" (click)="setRace('PARDA')" value="option1"> Parda
 					</label> 
 				</div>
 		
 				<div class="radio">
-					<label class="radio-inline">
-						<input type="radio" name="raceRadios" id="raceRadios4" (click)="setRace('PRETA')" value="option1"> PRETA
+					<label class="radio-inline field-gray">
+						<input type="radio" name="raceRadios" id="raceRadios4" (click)="setRace('PRETA')" value="option1"> Preta
 					</label> 
 				</div>
 		
 				<div class="radio">
-					<label class="radio-inline">
-						<input type="radio" name="raceRadios" id="raceRadios5"  (click)="setRace(null)" value="option1"> INDIFERENTE
+					<label class="radio-inline field-gray">
+						<input type="radio" name="raceRadios" id="raceRadios5"  (click)="setRace(null)" value="option1"> Indiferente
 					</label> 
 				</div>
 		</div>
@@ -71,7 +71,7 @@
 
 		<div class="container">
 				<div class="row">
-					<p>Qual você prefere?</p>
+					<p>Meu candidato deve ter:</p>
 				</div>
 			
 				<div class="radio">
@@ -102,7 +102,7 @@
 	
   </mat-step>
 
-  <!-- <mat-step label="Carreira política">
-    
-  </mat-step> -->
+  <mat-step label="Carreira política">
+	  <span class="badge badge-pill badge-warning">Em Breve!</span>    
+  </mat-step>
 </mat-vertical-stepper>
