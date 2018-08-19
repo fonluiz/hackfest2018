@@ -60,6 +60,13 @@ router.get('/proposicao/:nome', (req, res) => {
   execSQLQuery(query, parameters, res);
 });
 
+router.get('/carreira/:cpf', (req, res) => {
+  let parameters = [req.params.cpf];
+  const query = "SELECT t.total FROM (SELECT COUNT(*) as total FROM bens_candidatos WHERE cpfCandidato = ?) t WHERE t.total > 1";
+  
+  execSQLQuery(query, parameters, res);
+});
+
 // Função Wrapper para executar consultas no banco, 
 function execSQLQuery(sqlQuery, parameters, res) {
     pool.getConnection(function (err, connection) {

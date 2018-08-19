@@ -31,14 +31,6 @@ export class FilterComponent implements OnInit {
     this.emitFilter();
   }
 
-<<<<<<< HEAD
-  emitFilter() {
-    console.log(this.gender, this.race)
-    this.filterChange.emit(
-      {Genero: this.gender,
-      Cor_Raca: this.race}
-    ); 
-=======
   setSchooling(schooling: string) {
     this.schooling = schooling;
     this.emitFilter();
@@ -50,6 +42,5 @@ export class FilterComponent implements OnInit {
       Cor_Raca: this.race,
       Grau_Instrucao: this.schooling
     }); 
->>>>>>> 1290cfc5eb0a86d195f338fc9194a4bdf97e25b8
   }
 }
