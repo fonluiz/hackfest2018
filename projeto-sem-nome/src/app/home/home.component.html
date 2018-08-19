@@ -1,4 +1,4 @@
-<div class="bmd-layout-container bmd-drawer-f-l kitchen-sink-drawer">
+<div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-in kitchen-sink-drawer">
     <header class="bmd-layout-header">
       <div class="bg-faded">
         <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
@@ -8,7 +8,7 @@
    
       </div>
     </header>
-    <div id="dw-s1" class="bmd-layout-drawer bg-faded custom-bg">
+    <div id="dw-s1" class="bmd-layout-drawer bg-faded custom-bg" style="padding: 3rem">
       <div class="row offset-1 justify-content">
         <div class="logo-container">
             <img src="../assets/topo.png" class="logo">
@@ -16,7 +16,7 @@
       </div>
       <div><hr></div>
       <div class="custom-tx offset-1">
-        <p style="color: gray">Eleições 2018&nbsp;</p>
+        <p style="color: gold"> <strong>Eleições 2018&nbsp;</strong></p>
       </div>
       <div>
         <app-filter
@@ -27,7 +27,7 @@
     </div>
     <main class="bmd-layout-content">
       <div class="container">
-        <app-candidates-list>
+        <app-candidates-list [filter]="filter">
           
         </app-candidates-list>
       </div>

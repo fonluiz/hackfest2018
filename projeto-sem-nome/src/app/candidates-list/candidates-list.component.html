@@ -2,7 +2,7 @@
 
   <div class="row">
 
-      <div class="card m-1" *ngFor="let candidate of candidates | filterCandidates : filter">
+      <div class="card m-4" *ngFor="let candidate of candidates | filterCandidates : filter">
           <img class="card-img-top" src="{{ candidate.Foto_Url }}" alt="Card image cap">
           <div class="card-body">
             <p class="card-title"><a href="{{'/perfil/' + candidate?.ID }}">{{ this.titleCasePipe.transform(candidate.Nome_urna) }}</a></p>

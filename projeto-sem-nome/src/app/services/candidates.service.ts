@@ -25,4 +25,8 @@ export class CandidatesService {
   getPossessions(cpf: string): Observable<any> {
     return this.http.get(this.url + 'patrimonio/' + cpf);
   }
+
+  getNumProposicoes(nome: string) {
+    return this.http.get(this.url + "proposicao/" + nome);
+  }
 }
