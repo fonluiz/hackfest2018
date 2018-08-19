@@ -18,8 +18,14 @@ export class FilterCandidatesPipe implements PipeTransform {
     let result = items;
 
     if (filter.Genero) {
-      result = items.filter( cand => {
+      result = result.filter( cand => {
         return cand.Genero.toLowerCase() == filter.Genero.toLowerCase();
+      });
+    }
+
+    if (filter.Cor_Raca) {
+      result = result.filter( cand => {
+        return cand.Cor_Raca.toLowerCase() == filter.Cor_Raca.toLowerCase();
       });
     }
 

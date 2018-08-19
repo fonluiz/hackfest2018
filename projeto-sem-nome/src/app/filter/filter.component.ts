@@ -10,6 +10,9 @@ export class FilterComponent implements OnInit {
   @Output() filterChange: EventEmitter<any> = new EventEmitter();
 
   gender: string;
+  race: string;
+
+  filter: {[k: string]: any} = {};
 
   constructor() { }
 
@@ -18,6 +21,19 @@ export class FilterComponent implements OnInit {
 
   setGender(gender: string) {
     this.gender = gender;
-    this.filterChange.emit({Genero: this.gender})
+    this.emitFilter();
+    
+  }
+
+  setRace(race: string) {
+    this.race = race;
+    this.emitFilter();
+  }
+
+  emitFilter() {
+    this.filterChange.emit(
+      {Genero: this.gender,
+      Cor_Raca: this.race}
+    ); 
   }
 }
