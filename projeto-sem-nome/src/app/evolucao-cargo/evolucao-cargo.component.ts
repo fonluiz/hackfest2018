@@ -32,17 +32,27 @@ export class EvolucaoCargoComponent implements OnInit {
           y: [1, 1, 2, 4, 4, 5, 5, 6, 6],
           type: "scatter",
           mode: "lines",
-          line: { shape: "hvh" },
-          marker: { color: "blue" }
+          line: {
+            shape: "hvh",
+            width: 3
+          },
+          marker: { color: "#ffff00" }
         }
       ],
       layout: {
         width: "60%",
         height: 500,
         margin: {
-          l: 125
+          l: 200
         },
-        title: "Cargos",
+        title: "Histórico de Cargos",
+        font: {
+          family: "Courier New, monospace",
+          size: 18,
+          color: "#fff"
+        },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
         yaxis: {
           tickmode: "array",
           tickvals: [0, 1, 2, 3, 4, 5, 6, 7],
@@ -50,8 +60,8 @@ export class EvolucaoCargoComponent implements OnInit {
             "Nenhum",
             "Vereador",
             "Prefeito",
-            "Deputado Estadual",
-            "Deputado Federal",
+            "Dep. Estadual",
+            "Dep. Federal",
             "Senador",
             "Governador",
             "Presidente"

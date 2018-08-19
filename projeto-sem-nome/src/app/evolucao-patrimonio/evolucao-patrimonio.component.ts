@@ -24,10 +24,21 @@ export class EvolucaoPatrimonioComponent implements OnInit {
 
           line: { shape: "spline" },
           mode: "lines+markers",
-          marker: { color: "red" }
+          marker: { color: "#00ffff" }
         }
       ],
-      layout: { width: "60%", height: 350, title: "Patrimônio" }
+      layout: {
+        width: "60%",
+        height: 350,
+        title: "Evolução do Patrimônio",
+        font: {
+          family: "Courier New, monospace",
+          size: 18,
+          color: "#fff"
+        },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)"
+      }
     };
   }
 }

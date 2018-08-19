@@ -7,29 +7,45 @@
       <div class="row justify-content-center">
         <h3 class="detail-name" style="font-size: 2rem">{{ candidate?.Nome_urna | titleCase }}</h3>
       </div>
-      <div style="text-align:center;" class="details-info row justify-content-center mt-2"> 
-        <p class="details-item text-right"><strong class="valor-propriedade">{{candidate?.Nome_Completo }}</strong> </p>
-    </div>
+      <div style="text-align:center;" class="details-info row justify-content-center mt-2">
+        <p class="details-item text-right">
+          <strong class="valor-propriedade">{{candidate?.Nome_Completo }}</strong>
+        </p>
+      </div>
       <hr>
 
 
 
       <div class="details-info row justify-content-center mt-2">
-        <div class="col-10 col-md-5">          
-          <p class="details-item text-right">Partido: <strong class="valor-propriedade">{{ candidate?.Sigla }}</strong> </p>
-          <p class="details-item text-right">Gênero: <strong class="valor-propriedade">{{ (candidate?.Genero === 'FEM.') ? 'Feminino' : 'Masculino'}}</strong> </p>
-          <p class="details-item text-right">Grau de Instrução: <strong class="valor-propriedade"> {{ candidate?.Grau_Instrucao | titleCase}}</strong></p>          
-          <p class="details-item text-right">Estado Civil: <strong class="valor-propriedade">{{ candidate?.Estado_Civil | titleCase }}</strong></p>
+        <div class="col-10 col-md-5">
+          <p class="details-item text-right">Partido:
+            <strong class="valor-propriedade">{{ candidate?.Sigla }}</strong>
+          </p>
+          <p class="details-item text-right">Gênero:
+            <strong class="valor-propriedade">{{ (candidate?.Genero === 'FEM.') ? 'Feminino' : 'Masculino'}}</strong>
+          </p>
+          <p class="details-item text-right">Grau de Instrução:
+            <strong class="valor-propriedade"> {{ candidate?.Grau_Instrucao | titleCase}}</strong>
+          </p>
+          <p class="details-item text-right">Estado Civil:
+            <strong class="valor-propriedade">{{ candidate?.Estado_Civil | titleCase }}</strong>
+          </p>
         </div>
-        <div class="col-10 col-md-5">          
-          <p class="details-item text-left">Local: <strong class="valor-propriedade">{{candidate?.Local_Candidatura | titleCase }}</strong></p>
-          <p class="details-item text-left">Raça: <strong class="valor-propriedade">{{ candidate?.Cor_Raca | titleCase }}</strong></p> 
-          <p class="details-item text-left">Ocupação: <strong class="valor-propriedade"> {{ candidate?.Ocupacao | titleCase }}</strong></p>
+        <div class="col-10 col-md-5">
+          <p class="details-item text-left">Local:
+            <strong class="valor-propriedade">{{candidate?.Local_Candidatura | titleCase }}</strong>
+          </p>
+          <p class="details-item text-left">Raça:
+            <strong class="valor-propriedade">{{ candidate?.Cor_Raca | titleCase }}</strong>
+          </p>
+          <p class="details-item text-left">Ocupação:
+            <strong class="valor-propriedade"> {{ candidate?.Ocupacao | titleCase }}</strong>
+          </p>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class="activity my-3">
     <div class="row justify-content-center">
       <div class="propositions col-10 col-md-5 text-right">
@@ -47,9 +63,13 @@
 
   <div class="vis-panel row justify-content-center">
     <div class="col-10 col-md-8">
-      <h4 class="text-center">Visualizações</h4>
-      <div class="vis"><app-evolucao-cargo></app-evolucao-cargo></div>
-      <div class="vis"><app-evolucao-patrimonio [cpf]="candidate?.CPF"></app-evolucao-patrimonio></div>      
+      <!-- <h4 class="text-center">Visualizações</h4> -->
+      <div class="vis">
+        <app-evolucao-cargo></app-evolucao-cargo>
+      </div>
+      <div class="vis">
+        <app-evolucao-patrimonio [cpf]="candidate?.CPF"></app-evolucao-patrimonio>
+      </div>
     </div>
   </div>
 

@@ -1,15 +1,16 @@
 @import "node_modules/bootstrap-material-design/scss/bootstrap-material-design";
-@import '~@angular/material/prebuilt-themes/purple-green.css';
-
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 
 .kitchen-sink-drawer-static {
-    $custom-size: 500px;
-    @include bmd-drawer-x-in($custom-size); // triggered with bmd-drawer-in
-    @include bmd-drawer-x-out($custom-size); // closed by default
-    @include bmd-drawer-x-overlay(); // overlay by default, no other classes necessary
-  }
-.custom-bg{
-    background-color: #222f3e;
+  $custom-size: 500px;
+  @include bmd-drawer-x-in($custom-size); // triggered with bmd-drawer-in
+  @include bmd-drawer-x-out($custom-size); // closed by default
+  @include bmd-drawer-x-overlay(
+
+  ); // overlay by default, no other classes necessary
+}
+.custom-bg {
+  background-color: #05111f;
 }
 
 .button-row button,
@@ -17,7 +18,7 @@
   margin-right: 6px;
 }
 
-.logo{
+.logo {
   heigth: 200px;
   width: 200px;
 }
@@ -29,21 +30,21 @@
 }
 
 hr {
-  border-color: #BBBEC0;
+  border-color: #bbbec0;
   margin-top: 0;
 }
 
-.custom-tx{
+.custom-tx {
   text-align: end;
   margin-top: -15px;
 }
 
 .kitchen-sink-drawer {
-    $custom-size: 500px;
-    @include bmd-drawer-x-out($custom-size);
-    &:not(.bmd-drawer-out) {
-      @each $breakpoint in map-keys($grid-breakpoints) {
-        @include bmd-drawer-x-in-up($custom-size, $breakpoint);
-      }
-   }
+  $custom-size: 500px;
+  @include bmd-drawer-x-out($custom-size);
+  &:not(.bmd-drawer-out) {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      @include bmd-drawer-x-in-up($custom-size, $breakpoint);
+    }
+  }
 }
