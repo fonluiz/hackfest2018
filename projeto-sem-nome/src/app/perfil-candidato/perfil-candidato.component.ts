@@ -21,9 +21,11 @@ export class PerfilCandidatoComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.candidateId = params['id'];
-      console.dir(this.candidateId);
       this.candidatesService.getCandidate(this.candidateId).subscribe(
-        cand => this.candidate = cand[0]
+        cand => { 
+          this.candidate = cand[0];
+          console.dir(this.candidate);
+        }
       );
     })
     

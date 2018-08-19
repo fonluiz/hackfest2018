@@ -27,5 +27,3 @@ export class CandidatesListComponent implements OnInit {
     )
   }
 }
-
-}
