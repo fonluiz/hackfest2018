@@ -11,6 +11,7 @@ export class FilterComponent implements OnInit {
 
   gender: string;
   race: string;
+  educLevel: number;
 
   filter: {[k: string]: any} = {};
 
@@ -30,10 +31,17 @@ export class FilterComponent implements OnInit {
     this.emitFilter();
   }
 
+  setEducation(level: number) {
+    this.educLevel = level;
+    this.emitFilter();
+  }
+
   emitFilter() {
     this.filterChange.emit(
       {Genero: this.gender,
-      Cor_Raca: this.race}
+      Cor_Raca: this.race,
+      cod_grau_instrucao: this.educLevel
+    }
     ); 
   }
 }

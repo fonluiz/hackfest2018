@@ -29,6 +29,12 @@ export class FilterCandidatesPipe implements PipeTransform {
       });
     }
 
+    if (filter.cod_grau_instrucao) {
+      result = result.filter( cand => {
+        return cand.cod_grau_instrucao >= filter.cod_grau_instrucao;
+      });
+    }
+
     return result;
    }
 }

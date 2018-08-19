@@ -68,10 +68,41 @@
 	</mat-step>
 
   <mat-step label="Escolaridade">
+
+		<div class="container">
+				<div class="row">
+					<p>Qual você prefere?</p>
+				</div>
+			
+				<div class="radio">
+					<label class="radio-inline">
+						<input type="radio"  name="educationRadios" id="educationRadios1" (click)="setEducation(1)"> ENSINO FUNDAMENTAL
+					</label> 
+				</div>
+
+				<div class="radio">
+					<label class="radio-inline">
+						<input type="radio"  name="educationRadios" id="educationRadios2" (click)="setEducation(3)"> ENSINO MÉDIO
+					</label> 
+				</div>
+
+				<div class="radio">
+					<label class="radio-inline">
+						<input type="radio"  name="educationRadios" id="educationRadios3" (click)="setEducation(5)"> ENSINO SUPERIOR
+					</label> 
+				</div>
+
+				<div class="radio">
+					<label class="radio-inline">
+						<input type="radio"  name="educationRadios" id="educationRadios3" (click)="setEducation(null)"> INDIFERENTE
+					</label> 
+				</div>
+				
+		</div>	
 	
   </mat-step>
 
-  <mat-step label="Carreira política">
+  <!-- <mat-step label="Carreira política">
     
-  </mat-step>
+  </mat-step> -->
 </mat-vertical-stepper>
