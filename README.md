@@ -1,4 +1,4 @@
-# hackfest2018
+# CandiDados
 
 ## Levantando o banco de dados
 
