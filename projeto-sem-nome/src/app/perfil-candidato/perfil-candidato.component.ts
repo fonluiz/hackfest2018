@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CandidatesService } from '../services/candidates.service';
-import { Router, ActivatedRoute } from '../../../node_modules/@angular/router';
-import { Location } from '../../../node_modules/@angular/common';
+import { ActivatedRoute } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-perfil-candidato',
@@ -21,7 +20,7 @@ export class PerfilCandidatoComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.candidateId = params["id"];
+      this.candidateId = params['id'];
       this.candidatesService.getCandidate(this.candidateId).subscribe(cand => {
         this.candidate = cand[0];
         this.calcula_proposicoes(this.candidate.Nome_Completo);
@@ -30,10 +29,9 @@ export class PerfilCandidatoComponent implements OnInit {
   }
 
   calcula_proposicoes(nome: string) {
-    // let nome = "MARIA LAURA MONTEZA DE SOUZA CARNEIRO";
     this.route.params.subscribe(params => {
       this.candidatesService.getNumProposicoes(nome).subscribe(prop => {
-        let propArray = <Array<any>>prop;
+        const propArray = <Array<any>>prop;
         if (propArray.length === 0) {
           this.numProposicoes = 0;
         } else {
