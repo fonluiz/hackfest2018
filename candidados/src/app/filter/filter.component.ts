@@ -21,9 +21,9 @@ export class FilterComponent implements OnInit {
   }
 
   setGender(gender: string) {
-    this.gender = gender;    
+    this.gender = gender;
     this.emitFilter();
-    
+
   }
 
   setRace(race: string) {
@@ -41,6 +41,6 @@ export class FilterComponent implements OnInit {
       Genero: this.gender,
       Cor_Raca: this.race,
       cod_grau_instrucao: this.educLevel
-    }); 
+    });
   }
 }
