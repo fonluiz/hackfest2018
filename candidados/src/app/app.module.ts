@@ -9,8 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { FilterComponent } from './filter/filter.component';
-import { CandidatesListComponent } from './candidates-list/candidates-list.component';
+import { FiltraCandidatosComponent } from './filtra-candidatos/filtra-candidatos.component';
+import { CandidatesListComponent } from './lista-candidatos/lista-candidatos.component';
 import { CandidatesService } from './services/candidates.service';
 import { TitleCasePipe } from './pipes/title-case';
 import { FilterCandidatesPipe } from './pipes/filter-candidates';
@@ -27,7 +27,7 @@ import { EvolucaoCargoComponent } from './evolucao-cargo/evolucao-cargo.componen
   declarations: [
     AppComponent,
     HomeComponent,
-    FilterComponent,
+    FiltraCandidatosComponent,
     CandidatesListComponent,
     TitleCasePipe,
     EvolucaoPatrimonioComponent,
