@@ -1,11 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-filter',
-  templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss']
+  selector: 'app-filtra-candidatos',
+  templateUrl: './filtra-candidatos.component.html',
+  styleUrls: ['./filtra-candidatos.component.scss']
 })
-export class FilterComponent implements OnInit {
+export class FiltraCandidatosComponent implements OnInit {
 
   @Output() filterChange: EventEmitter<any> = new EventEmitter();
 

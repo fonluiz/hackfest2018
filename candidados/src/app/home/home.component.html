@@ -19,17 +19,17 @@
         <p style="color: gold"> <strong>Eleições 2018&nbsp;</strong></p>
       </div>
       <div>
-        <app-filter
+        <app-filtra-candidatos
         (filterChange)="changeFilter($event)"
-        ></app-filter>
+        ></app-filtra-candidatos>
       </div>
       
     </div>
     <main class="bmd-layout-content">
       <div class="container">
-        <app-candidates-list [filter]="filter">
+        <app-lista-candidatos [filter]="filter">
           
-        </app-candidates-list>
+        </app-lista-candidatos>
       </div>
     </main>
   </div> 
