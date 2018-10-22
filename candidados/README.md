@@ -1,13 +1,13 @@
-# Projeto sem Nome
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
+# CandiDados
 
 ## Requisitos
 Instale o nodemon globalmente:
 
 `npm install -g nodemon`
 
-Obs: Caso você tenha problemas com o Cors. Execute a instalação do mesmo manualmente: npm install cors
+Obs: Caso você tenha problemas com o Cors. Execute a instalação do mesmo manualmente: 
+
+`npm install cors`
 
 ## Recomendações
 Depois de clonar o repositório, instale as dependências necessárias:

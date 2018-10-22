@@ -1,6 +1,6 @@
 {
-  "name": "angular",
-  "version": "0.0.0",
+  "name": "candidados",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "babel-node": "babel-node --presets=env",

@@ -1,4 +1,5 @@
 # CandiDados
+Veja informações sobre os candidatos das eleições brasileiras e encontre os candidatos que podem te representar.
 
 ## Levantando o banco de dados
 
